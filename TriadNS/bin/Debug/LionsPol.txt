@@ -1,0 +1,438 @@
+routine LionsPol(InOut pol[100])[Integer ID, PacketTime, Radius, PridesCount,NomadsPercent; Real MinCoord, MaxCoord]
+initial
+boolean IsNomad, IsMale;
+integer i, j, DestId, swap, Population, countNorm, prides, rand, mypride,
+femaleNomad, femaleInPride, huntingGroup, s, k, tournament, counter, procTerr,
+nodeCount;
+real x,y, Bestx,Besty, preyX, preyY, maxDist, fitness, localfitness, lastlocalfitness,
+chosenDot, pr;
+x:=RandomRealIn(MinCoord,MaxCoord);
+y:=RandomRealIn(MinCoord,MaxCoord);
+Population:=1;
+procTerr:=6;
+array[100] of real Distances, Huntress, Prides, Locales;
+array[100] of integer Poluses, IDs;
+array[6] of real terrX, terrY;
+array[4] of real HelloMess, Reciever;
+fitness := Pow(x,2) + Pow(y,2);
+localfitness := Pow(x,2) + Pow(y,2);
+lastlocalfitness := fitness * 2;
+Bestx := x;
+Besty := y;
+preyX := RandomRealIn(MinCoord,MaxCoord);
+preyY := RandomRealIn(MinCoord,MaxCoord);
+HelloMess[0]:=4;
+HelloMess[1]:=localfitness;
+HelloMess[2]:=ID;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess);
+print "Моё расположение: x=" + RealToStr(x) + " y=" + RealToStr(y);
+huntingGroup:=-1;
+mypride:=-1;
+counter:=0;
+for i:=0 to 99 do
+Huntress[i]:=-1;
+endf;
+schedule FindLions in 1;
+schedule SetNomads in 2;
+schedule Scheduler in 3;
+schedule SendPacket in 4;
+endi
+event;
+Reciever:=StrToRealArray(message);
+if Reciever[0]=0 then
+Population:=Population+1;
+Distances[(integer)Reciever[3]]:=Sqrt((Reciever[1]-x)*(Reciever[1]-x)+
+(Reciever[2]-y)*(Reciever[2]-y));
+IDs[(integer)Reciever[3]] := (integer)Reciever[3];
+for j:=0 to 99 do
+case pol[j]:
+Poluses[(integer)Reciever[3]] := j;
+endc;
+endf;
+endif;
+if Reciever[0]=7 then
+if Reciever[3]=ID then
+Print "Сообщение мне";
+schedule SendPacket in 1;
+else
+if Reciever[2]-1=0 then
+Print "Сообщение погибло";
+else
+
+i := 0;
+    for j:=1 to 99 do
+        if Distances[j] < Distances[i] then
+        	i:=j;
+        endif;
+    endf;
+Print "Сообщение для узла " + IntToStr(DestId + 1);
+HelloMess[0]:=7;
+HelloMess[1]:=Reciever[1];
+HelloMess[2]:=Reciever[2]-1;
+HelloMess[3]:=Reciever[3];
+out RealArrayToStr(HelloMess) through pol[i];
+endif;
+endif;
+endif;
+if Reciever[0]=5 then
+mypride :=-1;
+Prides[ID] := -1;
+HelloMess[0]:=1;
+HelloMess[1]:=1;
+HelloMess[2]:=mypride;
+HelloMess[3]:=ID;
+out RealArrayToStr(HelloMess);
+endif;
+if Reciever[0]=6 then
+Distances[(integer)Reciever[3]]:=Sqrt((Reciever[1]-x)*(Reciever[1]-x)+
+(Reciever[2]-y)*(Reciever[2]-y));
+endif;
+if Reciever[0]=1 then
+if Reciever[1]=0 then
+Huntress[(integer)Reciever[3]]:=Reciever[2];
+endif;
+Prides[(integer)Reciever[3]]:=Reciever[2];
+endif;
+if Reciever[0]=2 then
+if Reciever[3]=mypride then
+if (huntingGroup=0) | (huntingGroup=2) then
+preyX := Reciever[1];
+preyY := Reciever[2];
+schedule Hunting in 1;
+endif;
+endif;
+endif;
+if Reciever[0]=3 then
+if Reciever[3]=mypride then
+if huntingGroup=-1 then
+k := k + (integer)(Reciever[1]);
+counter:= counter + 1;
+if counter = femaleInPride then
+tournament := 2;
+	if ((integer)((k + 1) / 2)) > 2 then
+		tournament := (integer)((k + 1) / 2);
+	endif;
+j:=0;
+for i:=0 to Population-1 do
+if (Huntress[i] = mypride) & (j<tournament) then
+chosenDot := Distances[i];
+j:=j+1;
+endif;
+endf;
+j:=0;
+x := x + 2*chosenDot*RandomRealIn(0,1)+RandomRealIn(-1,1)*chosenDot;
+y := y + 2*chosenDot*RandomRealIn(0,1)+RandomRealIn(-1,1)*chosenDot;
+fitness := Pow(x,2) + Pow(y,2);
+if localfitness > fitness then
+localfitness := fitness;
+Bestx := x;
+Besty := y;
+HelloMess[0]:=4;
+HelloMess[1]:=localfitness;
+HelloMess[2]:=ID;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess);
+endif;
+endif;
+endif;
+endif;
+endif;
+if Reciever[0]=4 then
+Locales[(integer)Reciever[2]]:=Reciever[1];
+endif;
+ende
+event FindLions;
+HelloMess[0]:=0;
+HelloMess[1]:=x;
+HelloMess[2]:=y;
+HelloMess[3]:=ID;
+out RealArrayToStr(HelloMess);
+ende
+event Scheduler;
+schedule StartHunting in 2;
+schedule MovingTowardSafePlace in 4;
+schedule Roaming in 5;
+schedule Defence in 6;
+if AbsReal(localfitness-lastlocalfitness)>AbsReal(0.001*localfitness) then
+schedule Scheduler in 7;
+endif;
+ende
+event SendPacket;
+
+i := -1;  // Инициализируем индекс как -1 (значение по умолчанию, если подходящих элементов нет)
+for j := 0 to 99 do  // Начинаем с индекса 0
+    if (Distances[j] < Radius) then  // Проверяем, что элемент меньше Radius
+        if (i = -1) then
+            i := j;  // Обновляем индекс, если нашли больший подходящий элемент
+        endif;
+
+        if (Distances[j] > Distances[i]) then
+            i := j;  // Обновляем индекс, если нашли больший подходящий элемент
+        endif;
+    endif;
+endf;
+
+DestId := RandomIn(0, Population-1);
+Print "Посылаю сообщение узлу " + IntToStr(DestId + 1);
+HelloMess[0]:=7;
+HelloMess[1]:=17061997;
+HelloMess[2]:=PacketTime;
+HelloMess[3]:=DestId;
+out RealArrayToStr(HelloMess) through pol[i];
+ende
+event SetNomads;
+countNorm:=(integer)(NomadsPercent*Population/100);
+femaleNomad:= (integer)(20*countNorm/100);
+for j:=0 to countNorm-1 do
+if ID = j then
+IsNomad:=True;
+if j>femaleNomad then
+IsMale:=True;
+Print "Я - кочевник самец";
+else
+IsMale:=False;
+Print "Я - кочевник самка";
+endif;
+else
+IsNomad:=False;
+endif;
+endf;
+prides:=(integer)((Population-countNorm)/PridesCount);
+femaleInPride:= (integer)(80*prides/100);
+if !IsNomad & (ID>=countNorm) then
+mypride:=(ID-countNorm)%PridesCount;
+if (ID-countNorm)/PridesCount>femaleInPride then
+IsMale:=True;
+HelloMess[1]:=1;
+Print "Я - в прайде " + IntToStr(mypride + 1) + " Я - самец";
+Prides[ID]:=mypride;
+else
+IsMale:=False;
+HelloMess[1]:=0;
+Print "Я - в прайде " + IntToStr(mypride + 1) + " Я - самка";
+Huntress[ID]:=mypride;
+Prides[ID]:=mypride;
+endif;
+HelloMess[0]:=1;
+HelloMess[2]:=mypride;
+HelloMess[3]:=ID;
+out RealArrayToStr(HelloMess);
+endif;
+ende
+event ResetNomads;
+for i:=0 to Population-1 do
+for j:=0 to Population-i-1 do
+if Locales[IDs[j]] < Locales[IDs[j + 1]] then
+swap := IDs[j + 1];
+IDs[j + 1] := IDs[j];
+IDs[j] := swap;
+endif;
+endf;
+endf;
+countNorm:=(integer)(NomadsPercent*Population/100);
+femaleNomad:= (integer)(20*countNorm/100);
+for j:=0 to countNorm-1 do
+if ID = IDs[j] then
+IsNomad:=True;
+Print "Я - кочевник";
+else
+IsNomad:=False;
+endif;
+endf;
+prides:=(integer)((Population-countNorm)/PridesCount);
+femaleInPride:= (integer)(80*prides/100);
+if !IsNomad & (ID>=countNorm) then
+mypride:=(ID-countNorm)%PridesCount;
+if (ID-countNorm)/PridesCount>femaleInPride then
+IsMale:=True;
+HelloMess[1]:=1;
+Print "Я - в прайде " + IntToStr(mypride + 1) + " Я - самец";
+Prides[ID]:=mypride;
+else
+IsMale:=False;
+HelloMess[1]:=0;
+Print "Я - в прайде " + IntToStr(mypride + 1) + " Я - самка";
+Huntress[ID]:=mypride;
+Prides[ID]:=mypride;
+endif;
+HelloMess[0]:=1;
+HelloMess[2]:=mypride;
+HelloMess[3]:=ID;
+out RealArrayToStr(HelloMess);
+endif;
+ende
+event StartHunting;
+if (IsNomad = False) & (mypride!=-1) & (IsMale = False) then
+j:=0;
+for i:=0 to Population-1 do
+if Huntress[i] = mypride then
+if (i = ID) & (j<3) then
+huntingGroup := j%3;
+endif;
+j:=j+1
+endif;
+endf;
+if huntingGroup!=-1 then
+endif;
+if huntingGroup = 1 then
+HelloMess[0]:=2;
+HelloMess[1]:=preyX;
+HelloMess[2]:=preyY;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess);
+schedule Hunting in 1;
+endif;
+endif;
+ende
+event Hunting;
+if (IsNomad = False) & (mypride!=-1) & (IsMale = False) then
+if (huntingGroup=0) | (huntingGroup=2) then
+if ((2 * preyX - x) < preyX) & ((2 * preyY - y) < preyY) then
+x := RandomRealIn(2 * preyX - x, preyX);
+y := RandomRealIn(2 * preyY - y, preyY);
+endif;
+if (2 * preyX - x > preyX) & (2 * preyY - y > preyY) then
+x := RandomRealIn(preyX, 2 * preyX - x);
+y := RandomRealIn(preyY, 2 * preyY - y);
+endif;
+endif;
+if (huntingGroup=1) then
+if (x < preyX) & (y < preyY) then
+x := RandomRealIn(x, preyX);
+y := RandomRealIn(y, preyY);
+endif;
+if (x > preyX) & (y > preyY) then
+x := RandomRealIn(preyX, x);
+y := RandomRealIn(preyY, y);
+endif;
+endif;
+print "Моё расположение: x=" + RealToStr(x) + " y=" + RealToStr(y);
+HelloMess[0]:=6;
+HelloMess[1]:=x;
+HelloMess[2]:=y;
+HelloMess[3]:=ID;
+out RealArrayToStr(HelloMess);
+fitness := Pow(x,2) + Pow(y,2);
+if localfitness > fitness then
+lastlocalfitness := localfitness;
+localfitness := fitness;
+Bestx := x;
+Besty := y;
+HelloMess[0]:=4;
+HelloMess[1]:=localfitness;
+HelloMess[2]:=ID;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess);
+schedule PreyEscapes in 1;
+endif;
+endif;
+ende
+event PreyEscapes;
+if (IsNomad = False) & (mypride!=-1) & (IsMale = False) then
+preyX := preyX + RandomRealIn(0,1) * 0.2 * (preyX - x);
+preyY := preyY + RandomRealIn(0,1) * 0.2 * (preyY - y);
+HelloMess[0]:=2;
+HelloMess[1]:=preyX;
+HelloMess[2]:=preyY;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess);
+endif;
+ende
+event MovingTowardSafePlace;
+if (IsNomad = False) & (mypride!=-1) & (IsMale = False) then
+if lastlocalfitness > localfitness then
+s := 1;
+else
+s := 0;
+endif;
+HelloMess[0]:=3;
+HelloMess[1]:=s;
+HelloMess[2]:=ID;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess);
+endif;
+ende
+event Roaming;
+if IsMale then
+Print "Начинаю бродить";
+if IsNomad then
+
+pr := (x*x/y - localfitness)/localfitness;
+if pr < 0.5 then
+    pr := 0.1 + pr;  // Если temp меньше 0.5, используем его
+else
+    pr := 0.1 + 0.5;   // Иначе используем 0.5
+endif;
+
+if RandomRealIn(0,1)> pr then
+fitness := Pow(x,2) + Pow(y,2);
+if localfitness > fitness then
+localfitness := fitness;
+Bestx := x;
+Besty := y;
+HelloMess[0]:=4;
+HelloMess[1]:=localfitness;
+HelloMess[2]:=ID;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess);
+print "Моё расположение: x=" + RealToStr(x) + " y=" + RealToStr(y);
+endif;
+else
+x := RandomRealIn(x-20, x+20);
+y := RandomRealIn(y-20, y+20);
+fitness := Pow(x,2) + Pow(y,2);
+if localfitness > fitness then
+localfitness := fitness;
+Bestx := x;
+Besty := y;
+endif;
+endif;
+else
+for i:=0 to procTerr-1 do
+terrX[i] := RandomRealIn(x-20, x+20);
+terrY[i] := RandomRealIn(y-20, y+20);
+x := terrX[i];
+y := terrY[i];
+fitness := Pow(x,2) + Pow(y,2);
+if localfitness > fitness then
+localfitness := fitness;
+Bestx := x;
+Besty := y;
+HelloMess[0]:=4;
+HelloMess[1]:=localfitness;
+HelloMess[2]:=ID;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess);
+print "Моё расположение: x=" + RealToStr(x) + " y=" + RealToStr(y);
+endif;
+endf;
+x := Bestx;
+y := Besty;
+endif;
+endif;
+ende
+event Defence;
+if IsNomad & IsMale then
+for i:=0 to PridesCount-1 do
+if RandomIn(0, 1) = 1 then
+for j:=0 to Population-1 do
+if (Prides[j] = i) & (mypride = -1) then
+if localfitness < Locales[j] then
+Print "Я был кочевник попал в прайд " + IntToStr(i + 1);
+mypride := i;
+IsNomad := false;
+Prides[ID] := i;
+HelloMess[0]:=5;
+HelloMess[1]:=localfitness;
+HelloMess[2]:=ID;
+HelloMess[3]:=mypride;
+out RealArrayToStr(HelloMess) through pol[Poluses[j]];
+endif;
+endif;
+endf;
+endif;
+endf;
+endif;
+ende
+endrout

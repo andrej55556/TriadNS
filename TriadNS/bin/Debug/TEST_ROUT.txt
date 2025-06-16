@@ -1,0 +1,121 @@
+routine TEST_ROUT(InOut Con[10])[Integer ID; Real MinCoord, MaxCoord]
+initial
+array[6] of Real SendToBase;
+array[6] of Real Recv, Send;
+Real Cid, CLid, NN:=0, PNid, PRid, RecieverID := 4, sendID := 0, isPath := 0, population,
+data, count, RSSI, Energy, HC:=0;
+boolean Finished := False;
+RSSI := RandomRealIn(MinCoord, MaxCoord);
+Energy := RandomRealIn (5, 100);
+schedule Init in 0;
+endi
+event;
+Recv := StrToRealArray(message);
+if Recv[0] = 0 then
+Cid := Recv[1];
+CLid := Recv[2];
+population := Recv[3];
+endif;
+if Recv[0] = 1 then
+if !Finished then
+Finished := True;
+HC := Recv[2] + 1;
+IF ID != RecieverID then
+schedule FindPossibleRoute in 0;
+endif;
+if ID = RecieverID then
+schedule buildRoute in population * population ;
+endif;
+endif;
+endif;
+if Recv[0] = 2 then
+if HC = Recv[2] then
+PRid := Recv[1];
+schedule buildRoute in population * population ;
+endif;
+endif;
+if Recv[0] = 3 then
+if ID = Recv[1] then
+data := Recv[2];
+endif;
+endif;
+ende
+event Init;
+SendToBase[0] := 9;
+SendToBase[1] := ID;
+SendToBase[2] := Energy;
+SendToBase[3] := RSSI;
+out RealArrayToStr(SendToBase);
+schedule PrintEv in population * population + 10;
+ende
+event PrintEv;
+if ID = CLid then
+NN:= 1;
+print "Я лидер-узел! В кластере " + RealToStr(Cid);
+endif;
+if ID = sendID then
+data:=123;
+isPath := 1;
+if Cid != Recv[3] then
+count := Recv[4];
+endif;
+schedule FindPossibleRoute in 0;
+endif;
+ende
+event FindPossibleRoute;
+Finished := True;
+Send[0] := 1;
+Send[1] := ID;
+Send[2] := HC;
+out RealArrayToStr(Send);
+ende
+event buildRoute;
+if Finished & (ID != sendID) then
+isPath := 1;
+Send[0] := 2;
+Send[1] := ID;
+Send[2] := HC - 1;
+out RealArrayToStr(Send);
+if ID = RecieverID then
+print "До меня дошли за " + RealToStr(HC) + " шагов";
+endif;
+endif;
+if isPath = 1 then
+print "Я нахожусь в текущем пути";
+endif;
+schedule SendPacket in population*ID;
+ende
+event SendPacket;
+If ID = sendID then
+Send[0] := 3;
+Send[1] := PRid;
+Send[2] := data;
+Send[3] := Cid;
+Send[4] := population;
+out RealArrayToStr(Send);
+endif;
+schedule RecievePacket in population*ID;
+ende
+event RecievePacket;
+If (isPath = 1) & (ID != sendID) then
+Send[0] := 3;
+Send[1] := PRid;
+Send[2] := data;
+Send[3] := Cid;
+Send[4] := population;
+out RealArrayToStr(Send);
+endif;
+schedule End in population*ID;
+ende
+event End;
+if (data != 0) & (ID != RecieverID) then
+print "Передал пакет данных: в " + RealToStr(PRid + 1) + " узел";
+endif;
+if (ID = RecieverID) & (data != 0) then
+print "Пакет данных успешно доставлен!";
+endif;
+if (ID = RecieverID) & (data = 0) then
+print "Пакет данных был потерян";
+endif;
+ende
+endrout

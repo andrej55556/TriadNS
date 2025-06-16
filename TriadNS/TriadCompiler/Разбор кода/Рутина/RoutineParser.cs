@@ -8,12 +8,12 @@ using TriadCompiler.Parser.Common.Statement;
 namespace TriadCompiler
     {
     /// <summary>
-    /// Класс, отвечающий за разбор рутин
+    /// пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     /// </summary>
     internal partial class RoutineParser : CommonParser
         {
         /// <summary>
-        /// Строитель кода
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         /// </summary>
         private RoutineCodeBuilder codeBuilder
             {
@@ -25,13 +25,13 @@ namespace TriadCompiler
 
         
         /// <summary>
-        /// Начать разбор и генерацию кода
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="endKey">Множество допустимых конечных символов</param>
+        /// <param name="endKey">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public override void Compile( EndKeyList endKey )
             {
             if ( !( Fabric.Instance.Builder is RoutineCodeBuilder ) )
-                throw new InvalidOperationException( "Недопустимый генератор кода" );
+                throw new InvalidOperationException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" );
 
             this.codeBuilder.SetBaseClass( Builder.Routine.BaseClass );
 
@@ -44,11 +44,11 @@ namespace TriadCompiler
 
 
         /// <summary>
-        /// Рутина
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <syntax>Routine Identificator { [ ParameterList ]( Interface ) } { InitialPart } 
         /// EventPart { EventPart } EndRoutine</syntax>
-        /// <param name="endKeys">Множество допустимых конечных символов</param>
+        /// <param name="endKeys">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         private void Routine( EndKeyList endKeys )
             {
             if ( currKey != Key.Routine )
@@ -60,10 +60,10 @@ namespace TriadCompiler
                 {
                 Accept( Key.Routine );
 
-                //Тип рутины
+                //пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 DesignTypeType designTypeType = null;
 
-                //Имя рутины
+                //пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 HeaderName.Parse( endKeys.UniteWith( Key.LeftPar, Key.LeftBracket, Key.Initial,
                     Key.Event, Key.EndRoutine ), delegate( string headerName )
                         {
@@ -76,45 +76,45 @@ namespace TriadCompiler
 
                 this.designTypeName = designTypeType.Name;
                 
-                //Создаем класс, представляющий объект
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 Fabric.Instance.Builder.SetClassName( designTypeName );
 
-                //Новая область видимости
+                //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 varArea.AddArea();
-                //Регистрируем стандартные функции
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 RegisterStandardFuntions();
 
-                //Добавляем переменную SystemTime
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ SystemTime
                 VarType varType = new VarType( TypeCode.Real );
                 varType.Name = Builder.Routine.SystemTime;
                 varArea.Register( varType );
 
 
-                //Заголовок
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 List<IExprType> parameters = Header.Parse(endKeys.UniteWith(Key.Initial, Key.Event, Key.EndRoutine));
                 designTypeType.AddParameterList(parameters);
 
                 (designTypeInfo as RoutineInfo).Parameters.AddRange(parameters);
 
-                //Секция инициализации
+                //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 if ( currKey == Key.Initial )
                     {
                     InitialPart( endKeys.UniteWith( Key.Initial, Key.Event, Key.EndRoutine ) );
                     }
 
-                //Очищаем список обращений к событиям
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 EventArea.Instance.ClearEventCallList();
 
-                //События			
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ			
                 while ( currKey == Key.Event )
                     {
                     EventPart( endKeys.UniteWith( Key.Event, Key.EndRoutine ) );
                     }
 
-                //Проверка, все ли события были описаны
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 EventArea.Instance.CheckEventDefinitions();
                 
-                //Убираем область видимости
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 varArea.RemoveArea();
                 
                 Accept( Key.EndRoutine );
@@ -129,10 +129,10 @@ namespace TriadCompiler
 
 
         /// <summary>
-        /// Начальные условия
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <syntax>Initial StatementList EndInitial</syntax>
-        /// <param name="endKeys">Множество допустимых конечных символов</param>
+        /// <param name="endKeys">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         private void InitialPart( EndKeyList endKeys )
             {
             Accept( Key.Initial );
@@ -148,10 +148,10 @@ namespace TriadCompiler
 
 
         /// <summary>
-        /// Описание события
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <syntax>Event [Identificator]; StatementList EndEvent</syntax>
-        /// <param name="endKeys">Множество допустимых конечных символов</param>
+        /// <param name="endKeys">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         private void EventPart( EndKeyList endKeys )
             {
             CodeStatementCollection statList = new CodeStatementCollection();
@@ -162,23 +162,23 @@ namespace TriadCompiler
 
             eventNameStr = EventName( endKeys.UniteWith( Key.Semicolon ), out context );
 
-            //Если это событие приема сообщений
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if ( context == StatementContext.MessageEvent )
                 {
-                //Добавление области для переменной message
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ message
                 varArea.AddArea();
 
-                //Регистрируем переменную message
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ message
                 VarType messageVarType = new VarType( TypeCode.String );
                 messageVarType.Name = Builder.Routine.Receive.ReceivedMessage;
                 varArea.Register( messageVarType );
 
-                //Регистрируем переменную polusIndex
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ polusIndex
                 VarType polusIndexVarType = new VarType( TypeCode.Integer );
                 polusIndexVarType.Name = Builder.Routine.Receive.PolusIndex;
                 varArea.Register( polusIndexVarType );
 
-                //Добавляем код объявления и инициализации переменной polusIndex
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ polusIndex
                 CodeVariableDeclarationStatement fieldCode = new CodeVariableDeclarationStatement();
                 fieldCode.Name = Builder.Routine.Receive.PolusIndex;
                 fieldCode.Type = new CodeTypeReference( "Int32" );
@@ -194,18 +194,18 @@ namespace TriadCompiler
             Accept( Key.Semicolon );
             statList.AddRange( StatementList.Parse( endKeys.UniteWith( Key.EndEvent ), context ) );
 
-            //Если это событие приема сообщений
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if ( context == StatementContext.MessageEvent )
                 {
-                //Удаление области видимости
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 varArea.RemoveArea();
 
-                //Генерация события обработки входных сообщений
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 codeBuilder.SetMessageHandlingEvent( statList );
                 }
             else
                 {
-                //Генерация обычного события
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 codeBuilder.AddPrivateMethod( eventNameStr, statList );
                 (designTypeInfo as RoutineInfo).Events.Add(eventNameStr); //by jum 11.04.10
                 }
@@ -221,14 +221,14 @@ namespace TriadCompiler
 
 
         /// <summary>
-        /// Имя события
+        /// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <syntax>Identificator | ПУСТО</syntax>
-        /// <param name="endKeys">Множество допустимых конечных символов</param>
-        /// <param name="context">Текущий контекст</param>
-        /// <returns>Имя события 
-        /// "" - если событие неименованное
-        /// null - если была ошибка</returns>
+        /// <syntax>Identificator | пїЅпїЅпїЅпїЅпїЅ</syntax>
+        /// <param name="endKeys">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="context">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
+        /// "" - пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        /// null - пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         private string EventName( EndKeyList endKeys, out StatementContext context )
             {
             string eventName = "";
@@ -241,14 +241,14 @@ namespace TriadCompiler
                 }
             if ( currKey == Key.Identificator || currKey == Key.Semicolon )
                 {
-                //Именованное событие
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 if ( currKey == Key.Identificator )
                     {
                     EventArea.Instance.RegisterEvent( ( currSymbol as IdentSymbol ).Name );
                     eventName = ( currSymbol as IdentSymbol ).Name;
                     GetNextKey();
                     }
-                //Неименованное событие
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 else if ( currKey == Key.Semicolon )
                     {
                     EventArea.Instance.RegisterEvent( "" );

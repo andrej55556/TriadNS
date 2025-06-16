@@ -99,6 +99,12 @@
     <Compile Include="Forms\frmAddElement.Designer.cs">
       <DependentUpon>frmAddElement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmGraphConst.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGraphConst.designer.cs">
+      <DependentUpon>frmGraphConst.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmRoutines.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,12 +190,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\EditForms.resx">
       <DependentUpon>EditForms.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEditPolus.resx">
       <DependentUpon>frmEditPolus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAddElement.resx">
       <DependentUpon>frmAddElement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGraphConst.resx">
+      <DependentUpon>frmGraphConst.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRoutines.resx">
       <DependentUpon>frmRoutines.cs</DependentUpon>
@@ -214,6 +225,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmObjectIP.resx">
       <DependentUpon>frmObjectIP.cs</DependentUpon>

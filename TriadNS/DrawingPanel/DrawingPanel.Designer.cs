@@ -37,15 +37,15 @@ namespace DrawingPanel
             this.AutoScrollMinSize = new System.Drawing.Size(1024, 768);
             this.BackColor = System.Drawing.Color.White;
             this.Name = "DrawingPanel";
-            this.Size = new System.Drawing.Size(283, 183);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawingPanel_Paint);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseMove);
-            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseDoubleClick);
+            this.Size = new System.Drawing.Size(1000, 1000);
             this.Scroll += new System.Windows.Forms.ScrollEventHandler(this.DrawingPanel_Scroll);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseDown);
-            this.Resize += new System.EventHandler(this.DrawingPanel_Resize);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseUp);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawingPanel_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DrawingPanel_KeyDown);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseDoubleClick);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DrawingPanel_MouseUp);
+            this.Resize += new System.EventHandler(this.DrawingPanel_Resize);
             this.ResumeLayout(false);
 
         }

@@ -1,0 +1,242 @@
+routine Lions(InOut pol[100])[
+    Integer ID, PacketTime, Radius, PridesCount, NomadsPercent, MaxSteps;
+    Real MinCoord, MaxCoord]
+initial
+    // Переменные состояния
+    Boolean IsNomad, IsMale, IsFemale, alreadyAssigned := false;
+    Integer i, j, DestId, LastHopId, BestNeighbor, MinDist, Population, TTL;
+    Integer mypride,stepCount;
+    Real x, y, dx, dy, d, fitness, localfitness, maxDist;
+    Array[100] of Integer prideMales, prideSize, nodePride;
+    Array[100] of Real Distances, Xs, Ys;
+    Array[4] of Real HelloMess, Reciever;
+    Real maleStep, femaleStep, messageCount, messageSend, messageAccept,messageDied;
+    // Глобальные структуры
+    Array[100] of Boolean prideMaleAssigned, nodeNomad, nodeMale, nodeFemale;
+    // Инициализация
+    Population := 1;
+    messageCount := 0;
+    messageSend := 0;
+    messageAccept := 0;
+    messageDied := 0;
+    maleStep   := 0.12 * Radius;
+    femaleStep := 0.25 * Radius;
+    for i := 0 to 99 do
+        Distances[i] := 99999;
+        Xs[i] := 0;
+        Ys[i] := 0;
+        prideMaleAssigned[i] := false;
+        nodePride[i] := -1;
+        nodeNomad[i] := false;
+        nodeMale[i] := false;
+        nodeFemale[i] := false;
+        prideMales[i] := -1; // Индекс самца прайда
+        prideSize[i] := 0;   // Счётчик членов прайда
+    endf;
+
+    // Инициализация узла
+    x := RandomRealIn(MinCoord, MaxCoord);
+    y := RandomRealIn(MinCoord, MaxCoord);
+
+    // Определение роли и принадлежности к прайду
+    IsNomad := false; IsMale := false; IsFemale := false; mypride := -1;
+
+    if RandomIn(0, 99) < NomadsPercent then
+        IsNomad := true;
+        Print "Я - кочевник";
+        nodeNomad[ID] := true;
+        mypride := -1;
+    else
+        mypride := RandomIn(0, PridesCount-1);
+        nodePride[ID] := mypride;
+        prideSize[mypride] := prideSize[mypride] + 1;
+        if !prideMaleAssigned[mypride] & (ID < PridesCount) then
+            IsMale := true;
+            nodeMale[ID] := true;
+            prideMaleAssigned[mypride] := true;
+            prideMales[mypride] := ID;
+            Print "Я - в прайде " + IntToStr(mypride) + " Я - самец";
+        else
+            IsFemale := true;
+            nodeFemale[ID] := true;
+            Print "Я - в прайде " + IntToStr(mypride) + " Я - самка";
+        endif;
+    endif;
+
+    print "Моё расположение: x=" + RealToStr(x) + " y=" + RealToStr(y);
+
+    // Начальные значения
+    fitness := RandomRealIn(0, 1);
+    localfitness := fitness;
+    maxDist := MaxCoord - MinCoord;
+    stepCount := 0;
+
+    schedule FindLions in 1;
+    schedule Behavior in 2;
+    schedule SendPacket in 3;
+endi
+
+// --- Обмен координатами (Hello)
+event FindLions;
+    HelloMess[0] := 0;
+    HelloMess[1] := x;
+    HelloMess[2] := y;
+    HelloMess[3] := ID;
+    out RealArrayToStr(HelloMess);
+ende
+
+event;
+    Reciever := StrToRealArray(message);
+
+    // Hello: сохраняем координаты других узлов
+    if Reciever[0] = 0 then
+        Population := Population + 1;
+        Xs[(Integer)Reciever[3]] := Reciever[1];
+        Ys[(Integer)Reciever[3]] := Reciever[2];
+        Distances[(Integer)Reciever[3]] :=
+            Sqrt((Reciever[1] - x) * (Reciever[1] - x) + (Reciever[2] - y) * (Reciever[2] - y));
+    endif;
+
+    // --- Пример: приём сообщения
+    if Reciever[0] = 7 then
+        LastHopId := (Integer)Reciever[1];
+        TTL := (Integer)Reciever[2];
+        DestId := (Integer)Reciever[3];
+        if DestId = ID then
+            Print "Сообщение мне";
+            messageAccept:= messageAccept + 1;
+            schedule SendPacket in 1;
+        else
+            TTL := TTL - 1;
+            if TTL = 0 then
+                Print "Сообщение погибло";
+                messageDied:= messageDied + 1;
+            else
+                MinDist := 99999;
+                BestNeighbor := -1;
+                for j := 0 to Population - 1 do
+                    if ((j != LastHopId) & (j != ID) & (Distances[j] < 99999)) then
+                        dx := Xs[j] - Xs[DestId];
+                        dy := Ys[j] - Ys[DestId];
+                        d := Sqrt(dx * dx + dy * dy);
+                        if d < MinDist then
+                            MinDist := (integer)d;
+                            BestNeighbor := j;
+                        endif;
+                    endif;
+                endf;
+                if BestNeighbor != -1 then
+                    HelloMess[0] := 7;
+                    HelloMess[1] := ID;        // LastHopId
+                    HelloMess[2] := TTL;
+                    HelloMess[3] := DestId;
+                    out RealArrayToStr(HelloMess) through pol[BestNeighbor];
+                    Print "Сообщение для узла " + IntToStr(DestId + 1);
+                    messageCount:= messageCount + 1;
+                else
+                    Print "Сообщение погибло";
+                    messageDied:= messageDied + 1;
+                endif;
+            endif;
+        endif;
+    endif;
+ende
+
+// --- Поведение узлов (прайды, кочевники, самцы, самки, миграция, турниры, фитнес)
+event Behavior;
+    // 1. Кочевники блуждают
+    if IsNomad then
+        x := x + RandomRealIn(-1, 1);
+        y := y + RandomRealIn(-1, 1);
+        alreadyAssigned := false;
+        // Возможность вступить в прайд (например, если рядом и есть вакансия)
+        for i := 0 to PridesCount-1 do
+            if !(prideMaleAssigned[i]) then
+                // Стать самцом нового прайда, если кочевник-самец
+                if fitness > 0.7 then // например, только если фитнес высокий
+                    mypride := i;
+                    IsNomad := false; IsMale := true; IsFemale := false;
+                    prideMaleAssigned[i] := true; prideMales[i] := ID;
+                    nodeNomad[ID] := false; nodeMale[ID] := true;
+                    alreadyAssigned := true; // ставим флаг
+                    Print "Кочевник стал самцом в прайде " + IntToStr(i);
+                endif;
+            endif;
+        endf;
+    else
+        // 2. Самец — контролирует прайд (минимальное движение, случайный дрейф)
+        if IsMale then
+            x := x + RandomRealIn(-maleStep, maleStep);
+            y := y + RandomRealIn(-maleStep, maleStep);
+            // Турнир: если кочевник-самец рядом и сильнее — смена лидера
+            for i := 0 to 99 do
+                if nodeNomad[i] & nodeMale[i] then
+                    d := Sqrt((Xs[i]-x)*(Xs[i]-x)+(Ys[i]-y)*(Ys[i]-y));
+                    if (d < Radius) & (fitness < RandomRealIn(0,1)) then
+                        // Смена самца в прайде
+                        IsMale := false; IsNomad := true; mypride := -1;
+                        prideMaleAssigned[mypride] := false; prideMales[mypride] := -1;
+                        nodeMale[ID] := false; nodeNomad[ID] := true;
+                        Print "Самец изгнан из прайда " + IntToStr(mypride);
+                    endif;
+                endif;
+            endf;
+        else
+            // 3. Самка — движение по сценарию “охоты” (ищет лучшее решение)
+            x := x + RandomRealIn(-femaleStep, femaleStep);
+            y := y + RandomRealIn(-femaleStep, femaleStep);
+            // Фитнес — функция от координат (пример)
+            localfitness := 1.0 - (AbsReal(x) + AbsReal(y)) / (2*maxDist);
+            // Если фитнес хуже локального — миграция
+            if localfitness < 0.3 then
+                // Уходит из прайда, становится кочевницей
+                IsFemale := false; IsNomad := true; mypride := -1;
+                nodeFemale[ID] := false; nodeNomad[ID] := true;
+                Print "Самка покинула прайд, стала кочевницей";
+            endif;
+        endif;
+    endif;
+    // Пересчёт фитнеса (глобальный/локальный)
+    fitness := 1.0 - (AbsReal(x) + AbsReal(y)) / (2*maxDist);
+
+    // Инкремент шага, ограничения по шагам
+    stepCount := stepCount + 1;
+    if stepCount < MaxSteps then
+        schedule Behavior in 1;
+    endif;
+ende
+
+// --- Пример события: отправка сообщения
+event SendPacket;
+    DestId := RandomIn(0, Population - 1);
+    while DestId = ID do
+        DestId := RandomIn(0, Population - 1);
+    endw;
+    TTL := PacketTime;
+    MinDist := 99999;
+    BestNeighbor := -1;
+    for j := 0 to Population - 1 do
+        if ((j != ID) & (Distances[j] < 99999)) then
+            dx := Xs[j] - Xs[DestId];
+            dy := Ys[j] - Ys[DestId];
+            d := Sqrt(dx * dx + dy * dy);
+            if d < MinDist then
+                MinDist := (integer)d;
+                BestNeighbor := j;
+            endif;
+        endif;
+    endf;
+    if BestNeighbor != -1 then
+        HelloMess[0] := 7;
+        HelloMess[1] := ID;     // LastHopId
+        HelloMess[2] := TTL;
+        HelloMess[3] := DestId;
+        out RealArrayToStr(HelloMess) through pol[BestNeighbor];
+        Print "Посылаю сообщение узлу " + IntToStr(DestId + 1);
+        messageSend:= messageSend + 1;
+    else
+        Print "Сообщение погибло";
+    endif;
+ende
+
+endrout

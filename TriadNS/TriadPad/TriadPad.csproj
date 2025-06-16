@@ -177,6 +177,12 @@
       <SubType>Designer</SubType>
       <DependentUpon>FormHotKey.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMain\FormMain_Edit.resx">
+      <DependentUpon>FormMain_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMain\FormMain_Menu.resx">
+      <DependentUpon>FormMain_Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormOptions.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormOptions.cs</DependentUpon>
