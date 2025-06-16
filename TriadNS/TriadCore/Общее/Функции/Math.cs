@@ -5,15 +5,15 @@ using System.Text;
 namespace TriadCore
     {
     /// <summary>
-    /// Математические функции
+    /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     /// </summary>
     public static class TMath
         {
         /// <summary>
-        /// Округление к ближайшему целому числу
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Целое число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static int Round( double value )
             {
             return (int)Math.Round( value, MidpointRounding.ToEven );
@@ -21,10 +21,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Синус
+        /// пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Sin( double value )
             {
             return Math.Sin( value );
@@ -32,10 +32,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Косинус
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Cos( double value )
             {
             return Math.Cos( value );
@@ -43,10 +43,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Тангенс
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Tan( double value )
             {
             return Math.Tan( value );
@@ -54,9 +54,9 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Знак числа
+        /// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
         /// <returns>-1 | 0 | 1</returns>
         public static int Sign( double value )
             {
@@ -65,10 +65,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Модуль числа
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Целое число</param>
-        /// <returns>Целое число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static int Abs( int value )
             {
             return Math.Abs( value );
@@ -76,10 +76,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Модуль числа
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double AbsReal( double value )
             {
             return Math.Abs( value );
@@ -87,10 +87,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Натуральный логарифм
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Ln( double value )
             {
             return Math.Log( value );
@@ -98,10 +98,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Десятичный логарифм
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Log( double value )
             {
             return Math.Log10( value );
@@ -109,10 +109,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Арксинус
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Asin( double value )
             {
             return Math.Asin( value );
@@ -120,10 +120,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Арккосинус
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Acos( double value )
             {
             return Math.Acos( value );
@@ -131,10 +131,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Арктангенс
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Atan( double value )
             {
             return Math.Atan( value );
@@ -142,10 +142,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Экспонента
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Exp( double value )
             {
             return Math.Exp( value );
@@ -153,11 +153,11 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Возведение в степень
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="x">Вещественное число</param>
-        /// <param name="y">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="x">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="y">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Pow( double x, double y )
             {
             return Math.Pow( x, y );
@@ -165,10 +165,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Квадратный корень
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double Sqrt( double value )
             {
             return Math.Sqrt( value );

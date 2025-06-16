@@ -12,7 +12,8 @@ namespace TriadNSim
         Undefined,
         Client,
         Server,
-        UserObject
+        UserObject,
+        SDNNode
     };
 
     [Serializable]

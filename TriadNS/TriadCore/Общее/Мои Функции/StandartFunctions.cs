@@ -444,6 +444,25 @@ namespace TriadCore
         }
 
         #endregion
+
+        /// <summary>
+        /// индекс элемента массива с минимальным значением
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        public static int IndexMinOfArr<T>(T[] arr) where T : IComparable<T>
+        {
+            if (arr == null || arr.Length == 0)
+                throw new ArgumentException("Пустой массив");
+
+            int ind = 0;
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i].CompareTo(arr[ind]) < 0)
+                    ind = i;
+            }
+            return ind;
+        }
     }
    
 }

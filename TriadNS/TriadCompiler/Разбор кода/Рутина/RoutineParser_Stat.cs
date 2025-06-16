@@ -12,13 +12,13 @@ namespace TriadCompiler
     internal partial class RoutineParser
         {
         /// <summary>
-        /// Множество стартовых символов оператора в рутине
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private static List<Key> routineStatementSet = null;
 
 
         /// <summary>
-        /// Стартовые символы оператора в рутине
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public static List<Key> StartKeys
             {
@@ -30,7 +30,7 @@ namespace TriadCompiler
                             Key.If, Key.Cancel, Key.Interlock, Key.Available, Key.Print, Key.Foreach };
 
                     routineStatementSet = new List<Key>( keySet );
-                    //Объявление переменных
+                    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     routineStatementSet.AddRange( TypeDeclaration.TypeStartKeys );
                     }
                 return routineStatementSet;
@@ -39,15 +39,15 @@ namespace TriadCompiler
 
 
         /// <summary>
-        /// Обобщенный оператор
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <syntax>ПУСТО | Assignement | IfStatement | VariableDeclaration |
+        /// <syntax>пїЅпїЅпїЅпїЅпїЅ | Assignement | IfStatement | VariableDeclaration |
         /// WhileStatement | ForStatement | caseStatement | sheduleStatement |
         /// outStatement | cancelStatement | interlockStatement | availableStatement |
         /// writeStatement</syntax>
-        /// <param name="endKeys">Множество конечных символов</param>
-        /// <param name="context">Текущий контекст</param>
-        /// <returns>Представление для генерации кода (=null, если это пустой оператор)</returns>
+        /// <param name="endKeys">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="context">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ (=null, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)</returns>
         public override CodeStatementCollection Statement( EndKeyList endKeys, StatementContext context )
             {
             CodeStatementCollection statementList = new CodeStatementCollection();
@@ -59,7 +59,7 @@ namespace TriadCompiler
                 }
             if ( StartKeys.Contains( currKey ) )
                 {
-                //Объявление переменных
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 if ( TypeDeclaration.TypeStartKeys.Contains( currKey ) )
                     {
                     if ( context != StatementContext.Initial )
@@ -73,53 +73,53 @@ namespace TriadCompiler
                     {
                     switch ( currKey )
                         {
-                        //Присваивание
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                         case Key.Identificator:
                             statementList.AddRange( Assignement.Parse( endKeys, AssignContext.Routine ) );
                             break;
-                        //Условный оператор
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                         case Key.If:
                             statementList.Add( Condition.Parse( endKeys, context ) );
                             break;
-                        //Цикл While
+                        //пїЅпїЅпїЅпїЅ While
                         case Key.While:
                             statementList.Add( WhileCicle.Parse( endKeys, context ) );
                             break;
-                        //Цикл For
+                        //пїЅпїЅпїЅпїЅ For
                         case Key.For:
                             statementList.Add( ForCicle.Parse( endKeys, context ) );
                             break;
-                        //Выбор Case
+                        //пїЅпїЅпїЅпїЅпїЅ Case
                         case Key.Case:
                             if ( context != StatementContext.MessageEvent )
                                 err.Register( Err.Parser.Usage.Context.Case );
                             statementList.Add( Case.Parse( endKeys, context ) );
                             break;
-                        //Оператор отладочной печати
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                         case Key.Print:
                             statementList.Add( Print.Parse( endKeys ) );
                             break;
-                        //Оператор планирования
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                         case Key.Shedule:
                             statementList.Add( Schedule.Parse( endKeys ) );
                             break;
-                        //Оператор out
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ out
                         case Key.Out:
                             statementList.AddRange( OutStatement.Parse( endKeys ) );
                             break;
-                        //Оператор отмены событий
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                         case Key.Cancel:
                             statementList.Add( Cancel.Parse( endKeys ) );
                             break;
-                        //Оператор блокирования входов
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                         case Key.Interlock:
                             statementList.AddRange( Interlock.Parse( endKeys ) );
                             break;
-                        //Оператор разблокирования входов
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                         case Key.Available:
                             statementList.AddRange( Available.Parse( endKeys ) );
                             break;
-                        //Оператор перебора элементов мн-ва
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ-пїЅпїЅ
                         case Key.Foreach:
                             statementList.AddRange( Foreach.Parse( endKeys, context ) );
                             break;

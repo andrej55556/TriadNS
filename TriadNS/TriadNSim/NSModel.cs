@@ -44,7 +44,7 @@ using System.Windows.Forms;
 //            Int32 polusIndex = GetPolusIndex(polusName);
 //            if (message == "Hello")
 //            {
-//                Sсhedule(0, this.Answer);
+//                Schedule(0, this.Answer);
 //            }
 //            else
 //            {
@@ -69,7 +69,7 @@ using System.Windows.Forms;
 //                    DoVarChanging(new CoreName("Mode"));
 //                    NodeCount = Convertion.StrToInt(message);
 //                    DoVarChanging(new CoreName("NodeCount"));
-//                    Sсhedule(T1 + (Double)((Int32)(Rand.RandomRealIn(0, T2) * 10000)) / 10000, this.Request);
+//                    Schedule(T1 + (Double)((Int32)(Rand.RandomRealIn(0, T2) * 10000)) / 10000, this.Request);
 //                }
 //                if (Mode == 0)
 //                {
@@ -99,7 +99,7 @@ using System.Windows.Forms;
 //            DoVarChanging(new CoreName("Req", 3));
 //            PrintMessage(Convertion.ToStr(MyNumber) + " шлёт " + Convertion.ToStr(Req[2]) + " вершине " + Convertion.ToStr(Req[0]));
 //            SendMessageVia(Convertion.RealArrayToStr(Req), new CoreName("Con"));
-//            Sсhedule((Double)((Rand.RandomIn(0, 5) * 10000)) / 10000, this.Request);
+//            Schedule((Double)((Rand.RandomIn(0, 5) * 10000)) / 10000, this.Request);
 //        }
 //    }
 
@@ -214,7 +214,7 @@ using System.Windows.Forms;
 //            DoVarChanging(new CoreName("MyNumber"));
 //            NodeCount = 0;
 //            DoVarChanging(new CoreName("NodeCount"));
-//            Sсhedule(1, this.SayHello);
+//            Schedule(1, this.SayHello);
 //            MySeed = Rand.RandomReal();
 //            DoVarChanging(new CoreName("MySeed"));
 //            BestSeed = MySeed;
@@ -234,7 +234,7 @@ using System.Windows.Forms;
 //        private void SayHello()
 //        {
 //            SendMessageViaAllPoluses("Hello");
-//            Sсhedule(1, this.StartDecide);
+//            Schedule(1, this.StartDecide);
 //        }
 
 //        protected override void ReceiveMessageVia(CoreName polusName, String message)
@@ -280,7 +280,7 @@ using System.Windows.Forms;
 //                    PrintMessage("Получил уже от " + Convertion.IntToStr(RecFrom) + " из " + Convertion.IntToStr(NCount));
 //                    if (RecFrom == NCount)
 //                    {
-//                        Sсhedule(1, this.Count);
+//                        Schedule(1, this.Count);
 //                        PrintMessage("Я - главный!");
 //                    }
 //                }
@@ -361,7 +361,7 @@ using System.Windows.Forms;
 //                        PrintMessage(" Шлю " + Convertion.IntArrayToStr(Msg) + " через выход " + Convertion.IntToStr(Father) + " папе");
 //                        SendMessageVia(Convertion.IntArrayToStr(Msg), new CoreName("Con", Father));
 //                    }
-//                    Sсhedule(1, this.BuildTable);
+//                    Schedule(1, this.BuildTable);
 //                }
 //            }
 //            if (Mode == 7)
@@ -388,7 +388,7 @@ using System.Windows.Forms;
 //                {
 //                    PrintMessage(" Шлю " + Convertion.IntArrayToStr(Msg) + " через выход " + Convertion.IntToStr(Father) + " папе");
 //                    SendMessageVia(Convertion.IntArrayToStr(Msg), new CoreName("Con", Father));
-//                    Sсhedule(1, this.BuildTable);
+//                    Schedule(1, this.BuildTable);
 //                }
 //                else
 //                {
@@ -425,7 +425,7 @@ using System.Windows.Forms;
 //                    {
 //                        NodeCount = Convertion.StrToInt(message);
 //                        DoVarChanging(new CoreName("NodeCount"));
-//                        Sсhedule(1, this.StartShare);
+//                        Schedule(1, this.StartShare);
 //                        Mode = 6;
 //                        DoVarChanging(new CoreName("Mode"));
 //                    }
@@ -733,7 +733,7 @@ using System.Windows.Forms;
 //                            SendMessageVia(message, new CoreName("Con", i));
 //                        }
 //                    }
-//                    Sсhedule(0.5, this.incN);
+//                    Schedule(0.5, this.incN);
 //                }
 //            }
 //            if (Mode == 10)
@@ -813,7 +813,7 @@ using System.Windows.Forms;
 //                            PrintMessage("В очереди " + Convertion.ToStr(QueueFilled) + " сообщений");
 //                            if (QueueFilled == 1)
 //                            {
-//                                Sсhedule(T1 + (Double)((Int32)(Rand.RandomRealIn(0, T2) * 10000)) / 10000, this.Process);
+//                                Schedule(T1 + (Double)((Int32)(Rand.RandomRealIn(0, T2) * 10000)) / 10000, this.Process);
 //                            }
 //                        }
 //                    }
@@ -836,7 +836,7 @@ using System.Windows.Forms;
 //                DoVarChanging(new CoreName("RecFrom"));
 //                if (RecFrom == NCount)
 //                {
-//                    Sсhedule(1, this.Count);
+//                    Schedule(1, this.Count);
 //                    PrintMessage("Я - главный!");
 //                }
 //                else
@@ -859,7 +859,7 @@ using System.Windows.Forms;
 //            DoVarChanging(new CoreName("RecFrom"));
 //            if (RecFrom == NCount)
 //            {
-//                Sсhedule(1, this.StartWork);
+//                Schedule(1, this.StartWork);
 //            }
 //            else
 //            {
@@ -934,7 +934,7 @@ using System.Windows.Forms;
 //                {
 //                    NodeCount = N - 1;
 //                    DoVarChanging(new CoreName("NodeCount"));
-//                    Sсhedule(0.5, this.StartWork);
+//                    Schedule(0.5, this.StartWork);
 //                }
 //                else
 //                {
@@ -979,7 +979,7 @@ using System.Windows.Forms;
 //            {
 //                if ((i == MyNumber) || (ImFor[i]))
 //                {
-//                    Sсhedule(i + 1, this.SendTables);
+//                    Schedule(i + 1, this.SendTables);
 //                }
 //                ImFor[i] = false;
 //                DoVarChanging(new CoreName("ImFor", i));
@@ -997,7 +997,7 @@ using System.Windows.Forms;
 //                    SendMessageVia(Convertion.Real2DArrayToStr(TheTable), new CoreName("Con", i));
 //                }
 //            }
-//            Sсhedule(0.5, this.incN);
+//            Schedule(0.5, this.incN);
 //        }
 
 //        private void incN()
@@ -1007,7 +1007,7 @@ using System.Windows.Forms;
 //            PrintMessage(Convertion.ToStr(N));
 //            if (N == NodeCount)
 //            {
-//                Sсhedule(0.5, this.StartWork);
+//                Schedule(0.5, this.StartWork);
 //            }
 //        }
 
@@ -1138,7 +1138,7 @@ using System.Windows.Forms;
 //                SendMessageVia(strTemp, new CoreName("Con", k));
 //                if (QueueFilled > 0)
 //                {
-//                    Sсhedule(T1 + (Double)((Int32)(Rand.RandomRealIn(0, T2) * 10000)) / 10000, this.Process);
+//                    Schedule(T1 + (Double)((Int32)(Rand.RandomRealIn(0, T2) * 10000)) / 10000, this.Process);
 //                }
 //            }
 //        }
@@ -1181,7 +1181,7 @@ namespace TriadNSim
 						sPath = Application.StartupPath + "\\" + node.Routine.Name + ".dll";
 					else
 						sPath = node.Routine.AssemblyPath;
-					assembly = Assembly.LoadFile(sPath);
+					 assembly = Assembly.LoadFile(sPath);
                 }
                 Type RoutineType = assembly.GetType("TriadCore." + node.Routine.Name, true, true);
                 object[] Params = GetParameters(node.Routine);

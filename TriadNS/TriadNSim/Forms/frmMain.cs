@@ -270,6 +270,7 @@ namespace TriadNSim.Forms
             listView1.Items[2].Tag = new object[2] { "Router", ENetworkObjectType.Undefined };
 
             listView1.Items[3].Tag = new object[2] { "UserObj", ENetworkObjectType.UserObject };
+            listView1.Items[4].Tag = new object[2] { "SDNNode", ENetworkObjectType.Undefined };
         }
 
         private void toolStripcmbZoom_SelectedIndexChanged(object sender, EventArgs e)
@@ -314,13 +315,39 @@ namespace TriadNSim.Forms
 
         private void toolStripbtnRun_Click(object sender, EventArgs e)
         {
+            /*Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();*/
             Run();
+            /*stopwatch.Stop();
+            Console.WriteLine($"Time taken: {stopwatch.ElapsedMilliseconds} ms");*/
         }
 
         private void Run(bool bSelectSimCondition = false)
         {
             //m_oSimulation.Start(true);
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             SimulationInfo simInfo = new SimulationInfo(drawingPanel1.Shapes, GetEndModelTime());
+
+            stopwatch.Stop();
+
+            // 1. Точное время в тиках
+            long ticks = stopwatch.ElapsedTicks;
+
+            // 2. Узнаем частоту тиков
+            double tickFrequency = (double)Stopwatch.Frequency; // тиков в секунду
+
+            // 3. Время в наносекундах
+            double nanoseconds = (ticks * 1_000_000_000.0) / tickFrequency;
+
+            // 4. Время в микросекундах
+            double microseconds = nanoseconds / 1000.0;
+
+            Console.WriteLine($"Количество тиков: {stopwatch.ElapsedTicks}");
+            Console.WriteLine($"Время в микросекундах: {microseconds}");
+            Console.WriteLine($"Time taken: {stopwatch.ElapsedMilliseconds} ms");
+            Console.WriteLine();
 
             if (simInfo.Nodes.Count == 0)
             {
@@ -837,10 +864,10 @@ namespace TriadNSim.Forms
             listView1.Clear();
             imageList2.Images.Clear();
 
-           string[] standartItems = { "Рабочая станция", "Сервер", "Маршрутизатор", "Пользовательский" };
+           string[] standartItems = { "Рабочая станция", "Сервер", "Маршрутизатор", "Пользовательский", "Узел" };
            //string[] standartItems = { "Workstation", "Server", "Router", "Custom" };
-            string[] standartItemNames = { "Workstation", "Server", "Router", "ComputerNetworkNode" };
-            ENetworkObjectType[] types = { ENetworkObjectType.Client, ENetworkObjectType.Server, ENetworkObjectType.Undefined, ENetworkObjectType.UserObject };
+            string[] standartItemNames = { "Workstation", "Server", "Router", "ComputerNetworkNode", "SDNNode" };
+            ENetworkObjectType[] types = { ENetworkObjectType.Client, ENetworkObjectType.Server, ENetworkObjectType.Undefined, ENetworkObjectType.UserObject, ENetworkObjectType.Undefined };
             Dictionary<string, ListViewItem> Items = new Dictionary<string, ListViewItem>();
             for(int i = 0; i < standartItems.Length; i++)
             {
@@ -981,6 +1008,18 @@ namespace TriadNSim.Forms
                     if (type != ENetworkObjectType.UserObject)
                     {
                         menu.Items.Add("Поведения элемента", null, сMenuItemsRoutines_Click);
+
+                        ListViewItem item2 = listView1.SelectedItems[0];
+                        string sName = (string)(item2.Tag as object[])[0];
+                        IOWLClass cls = ontologyManager.GetClass(sName);
+                        if (cls == null)
+                        {
+                            Util.ShowErrorBox("Элемент '" + sName + "' не найден");
+                            return;
+                        }
+                        frmRoutines frm = new frmRoutines(cls);
+                        frm.ShowDialog();
+
                         menu.Items.Add("Изменить изображение", null, ChangeElementImage);
                         if (type == ENetworkObjectType.Undefined && tag[0].ToString() != "Router")
                             menu.Items.Add("Удалить элемент", null, cMenuItemsDelElement_Click);
@@ -1033,6 +1072,542 @@ namespace TriadNSim.Forms
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveImageList();
+        }
+
+        private void toolStripbtnGraphConst_Click(object sender, EventArgs e)
+        {
+            frmGraphConst frm = new frmGraphConst(this);
+            frm.ShowDialog();
+        }
+        int X1 = 0, Y1 = 0;
+        NetworkObject s;
+        NetworkObject[] shapeArray;
+        public void GraphConst(frmGraphConst frm, int k, int n, int m)
+        {
+            double q = (n+1) / 2;
+            double q1 = n/ 2;
+            switch (k)
+            {
+                case 0:
+                    X1 = 50;
+                    Y1 = drawingPanel1.Size.Height / 2;
+                    frm.progressBar1.Maximum = n;
+                    frm.progressBar1.Value = 0;
+                    for (int i = 1; i <= n; i++)
+                    {
+                        ListViewItem li = listView1.Items[4];
+                        Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                        object[] tag = li.Tag as object[];
+                        ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                        float fZoom = drawingPanel1.Zoom;
+                        int delta = 100;
+                        int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                        int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                        NetworkObject shape = new NetworkObject(drawingPanel1);
+                        shape.Type = type;
+                        shape.Rect = new Rectangle(X, Y, delta, delta);
+                        shape.Name = GetUniqueShapeName(li.Text);
+                        if (type != ENetworkObjectType.UserObject)
+                            shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                        if (ItemImages.ContainsKey(li))
+                        {
+                            shape.img = new Bitmap(ItemImages[li]);
+                            shape.showBorder = type == ENetworkObjectType.SDNNode;
+                            shape.Trasparent = false;
+                        }
+                        else
+                        {//!!
+
+                            shape.showBorder = true;
+                        }
+                        drawingPanel1.ShapeCollection.AddShape(shape);
+                        X1 += 150;
+                        if ((drawingPanel1.ShapeCollection.GetLine(shape, s) == null) && (i > 1))
+                        {
+                            Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, s.ConnectionPoint);
+                            if (EditLink(oLink, false))
+                                drawingPanel1.ShapeCollection.AddShape(oLink);
+                        }
+                        s = shape;
+                        frm.progressBar1.PerformStep();
+                    }
+                    drawingPanel1.Focus();
+                    break;
+                case 1:
+                    shapeArray = new NetworkObject[n + 1];
+                    X1 = 50;
+                    Y1 = drawingPanel1.Size.Height / 2;
+                    frm.progressBar1.Maximum = n;
+                    frm.progressBar1.Value = 0;
+                    for (int i = 1; i <= n; i++)
+                    {
+                        ListViewItem li = listView1.Items[4];
+                        Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                        object[] tag = li.Tag as object[];
+                        ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                        float fZoom = drawingPanel1.Zoom;
+                        int delta = 100;
+                        int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                        int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                        NetworkObject shape = new NetworkObject(drawingPanel1);
+                        shape.Type = type;
+                        shape.Rect = new Rectangle(X, Y, delta, delta);
+                        shape.Name = GetUniqueShapeName(li.Text);
+                        if (type != ENetworkObjectType.UserObject)
+                            shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                        if (ItemImages.ContainsKey(li))
+                        {
+                            shape.img = new Bitmap(ItemImages[li]);
+                            shape.showBorder = type == ENetworkObjectType.SDNNode;
+                            shape.Trasparent = false;
+                        }
+                        else
+                        {//!!
+
+                            shape.showBorder = true;
+                        }
+                        
+                        drawingPanel1.ShapeCollection.AddShape(shape);
+                        if (i < Math.Round(q)+1) { X1 += 150;  }
+                        else
+                        {
+                            if (i == Math.Round(q)+1) { Y1 += 150; }
+                            else { X1 -= 150; }
+                        }
+
+                        if ((drawingPanel1.ShapeCollection.GetLine(shape, shapeArray[i-1]) == null) && (i > 1))
+                        {
+                            Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[i - 1].ConnectionPoint);
+                            if (EditLink(oLink, false))
+                                drawingPanel1.ShapeCollection.AddShape(oLink);
+                        }
+                        shapeArray[i] = shape;
+                        frm.progressBar1.PerformStep();
+                    }      
+                    Link oLink1 = new Link(drawingPanel1, shapeArray[1].ConnectionPoint, shapeArray[n].ConnectionPoint);
+                            if (EditLink(oLink1, false))
+                                drawingPanel1.ShapeCollection.AddShape(oLink1);
+                    drawingPanel1.Focus();
+                    break;
+                case 2:
+                    shapeArray = new NetworkObject[n + 1];
+                    X1 = 50;
+                    Y1 = 75*(n/2+1);
+                    frm.progressBar1.Maximum = n;
+                    frm.progressBar1.Value = 0;
+                    for (int i = 1; i <= n; i++)
+                    {
+                        ListViewItem li = listView1.Items[4];
+                        Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                        object[] tag = li.Tag as object[];
+                        ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                        float fZoom = drawingPanel1.Zoom;
+                        int delta = 100;
+                        int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                        int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                        NetworkObject shape = new NetworkObject(drawingPanel1);
+                        shape.Type = type;
+                        shape.Rect = new Rectangle(X, Y, delta, delta);
+                        shape.Name = GetUniqueShapeName(li.Text);
+                        if (type != ENetworkObjectType.UserObject)
+                            shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                        if (ItemImages.ContainsKey(li))
+                        {
+                            shape.img = new Bitmap(ItemImages[li]);
+                            shape.showBorder = type == ENetworkObjectType.SDNNode;
+                            shape.Trasparent = false;
+                        }
+                        else
+                        {//!!
+
+                            shape.showBorder = true;
+                        }
+                        
+                        drawingPanel1.ShapeCollection.AddShape(shape);
+                        if (i < Math.Round(q)) 
+                        {
+                            if (i % 2 != 0)
+                            { Y1 += i * 150 ;  }
+                            else { Y1 -=i*150; X1+= 150; }
+                        }
+                        else
+                        {
+                            if ((i == Math.Round(q1)) || ((i == Math.Round(q1) + 1) && (i % 2 != 0)))
+                            {
+                                if (i % 2 != 0)
+                                { Y1 += (n - i) * 150; }
+                                else { Y1 -= ((n - i - 1) * 150); X1 += 150; }
+                            }
+                            else
+                            {
+                                if (i % 2 != 0)
+                                { Y1 += (n - i) * 150; }
+                                else { Y1 -= (n - i) * 150; X1 += 150; }
+                            }
+                        }
+
+                        for (int j = 1; j < i; j++ )
+                            if ((drawingPanel1.ShapeCollection.GetLine(shape, shapeArray[j]) == null) && (i > 1))
+                            {
+                                Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[j].ConnectionPoint);
+                                if (EditLink(oLink, false))
+                                    drawingPanel1.ShapeCollection.AddShape(oLink);
+                            }
+                        shapeArray[i] = shape;
+                        frm.progressBar1.PerformStep();
+                    }      
+                    drawingPanel1.Focus();
+                    break;
+                case 3:
+                    shapeArray = new NetworkObject[(n + 1)*(n + 1)];
+                    X1 = 50;
+                    Y1 = 175;
+                    frm.progressBar1.Maximum = m;
+                    frm.progressBar1.Value = 0;
+                    for (int j1 = 1; j1 <= m; j1++)
+                    {
+                        for (int i = 1; i <= n; i++)
+                        {
+                            ListViewItem li = listView1.Items[4];
+                            Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                            object[] tag = li.Tag as object[];
+                            ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                            float fZoom = drawingPanel1.Zoom;
+                            int delta = 100;
+                            int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                            int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                            NetworkObject shape = new NetworkObject(drawingPanel1);
+                            shape.Type = type;
+                            shape.Rect = new Rectangle(X, Y, delta, delta);
+                            shape.Name = GetUniqueShapeName(li.Text);
+                            if (type != ENetworkObjectType.UserObject)
+                                shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                            if (ItemImages.ContainsKey(li))
+                            {
+                                shape.img = new Bitmap(ItemImages[li]);
+                                shape.showBorder = type == ENetworkObjectType.SDNNode;
+                                shape.Trasparent = false;
+                            }
+                            else
+                            {//!!
+
+                                shape.showBorder = true;
+                            }
+
+                            drawingPanel1.ShapeCollection.AddShape(shape);
+                            X1 += 150;
+
+                            if ((drawingPanel1.ShapeCollection.GetLine(shape, shapeArray[n * (j1 - 1) + (i - 1)]) == null) && (i > 1))
+                            {
+                                Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[n*(j1-1)+(i - 1)].ConnectionPoint);
+                                if (EditLink(oLink, false))
+                                    drawingPanel1.ShapeCollection.AddShape(oLink);
+                            }
+                            if ((j1 > 1) && (i % n != 0))
+                            {
+                                if (drawingPanel1.ShapeCollection.GetLine(shape, shapeArray[(i + n * (j1 - 2)) % n]) == null)
+                                {
+                                    Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[(i + n * (j1 - 2)) % n].ConnectionPoint);
+                                    if (EditLink(oLink, false))
+                                        drawingPanel1.ShapeCollection.AddShape(oLink);
+                                }
+                            }
+                            shapeArray[i + n * (j1 - 1)] = shape;
+                        }
+                        if ((drawingPanel1.ShapeCollection.GetLine(shapeArray[n * j1], shapeArray[n * (j1 - 1)]) == null) && (j1>1))
+                        {
+                            Link oLink = new Link(drawingPanel1, shapeArray[n * j1].ConnectionPoint, shapeArray[n * (j1 - 1)].ConnectionPoint);
+                            if (EditLink(oLink, false))
+                                drawingPanel1.ShapeCollection.AddShape(oLink);
+                        }
+                        X1 -= 150 * n;
+                        Y1 += 150;
+                        frm.progressBar1.PerformStep();
+                    }
+                    drawingPanel1.Focus();
+                    break;
+                case 4:
+                    int nn = 0, ii = 0;
+                    frm.progressBar1.Maximum = m;
+                    frm.progressBar1.Value = 0;
+                    for (int i1 = 0; i1 <= m; i1++)
+                    {
+                        nn += Convert.ToInt32(Math.Pow(Convert.ToDouble(n), Convert.ToDouble(i1)));
+                    }
+                    shapeArray = new NetworkObject[nn+1];
+                    X1 = 150 * Convert.ToInt32(Math.Pow(Convert.ToDouble(n), Convert.ToDouble(m))) / 2;
+                    Y1 = 150;
+                    for (int j1 = 0; j1 <= m; j1++)
+                    {
+
+                        for (int i = 1; i <= (Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1))); i++)
+                        {
+                            ListViewItem li = listView1.Items[4];
+                            Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                            object[] tag = li.Tag as object[];
+                            ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                            float fZoom = drawingPanel1.Zoom;
+                            int delta = 100;
+                            int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                            int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                            NetworkObject shape = new NetworkObject(drawingPanel1);
+                            shape.Type = type;
+                            shape.Rect = new Rectangle(X, Y, delta, delta);
+                            shape.Name = GetUniqueShapeName(li.Text);
+                            if (type != ENetworkObjectType.UserObject)
+                                shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                            if (ItemImages.ContainsKey(li))
+                            {
+                                shape.img = new Bitmap(ItemImages[li]);
+                                shape.showBorder = type == ENetworkObjectType.SDNNode;
+                                shape.Trasparent = false;
+                            }
+                            else
+                            {//!!
+
+                                shape.showBorder = true;
+                            }
+
+                            drawingPanel1.ShapeCollection.AddShape(shape);
+                            X1 += 150;
+                            ii += 1;
+                            int v=0;
+                            for (int i1 = 0; i1 < j1-1; i1++)
+                            {
+                                v += Convert.ToInt32(Math.Pow(Convert.ToDouble(n), Convert.ToDouble(i1)));
+                            }
+                            if (j1 > 1)
+                            {
+                                if ((drawingPanel1.ShapeCollection.GetLine(shape, shapeArray[Convert.ToInt32(Math.Round((ii - v - Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1 - 1))) / Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1 - 1)) + v))]) == null) && (ii != v + Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1 - 1)) + Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1))))
+                                {
+                                    Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[Convert.ToInt32(Math.Round((ii+1 - v - Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1-1))) / Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1 - 1))+v))].ConnectionPoint);
+                                    if (EditLink(oLink, false))
+                                        drawingPanel1.ShapeCollection.AddShape(oLink);
+                                }
+                                else
+                                {
+                                    Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[Convert.ToInt32(Math.Round((ii  - v - Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1 - 1))) / Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1 - 1)) + v))].ConnectionPoint);
+                                    if (EditLink(oLink, false))
+                                        drawingPanel1.ShapeCollection.AddShape(oLink);
+                                }
+                            }
+                            else
+                                if (j1 == 1)
+                                {
+                                    if (drawingPanel1.ShapeCollection.GetLine(shape, shapeArray[1]) == null)
+                                    {
+                                        Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[1].ConnectionPoint);
+                                        if (EditLink(oLink, false))
+                                            drawingPanel1.ShapeCollection.AddShape(oLink);
+                                    }
+                                }
+                            shapeArray[ii] = shape;
+                        }    
+                        X1 = 150 * Convert.ToInt32(Math.Pow(Convert.ToDouble(n), Convert.ToDouble(m))) / 2 - 100 * Convert.ToInt32(Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1 + 1)) - 2) / 2 - 50 * (Convert.ToInt32(Math.Pow(Convert.ToDouble(n), Convert.ToDouble(j1 + 1))) - 1) / 2 - 50;
+                        Y1 += 200;
+                        frm.progressBar1.PerformStep();
+                    }
+                    drawingPanel1.Focus();
+                    break;
+                case 5:
+                    shapeArray = new NetworkObject[n+m + 1];
+                    X1 = 50;
+                    Y1 = drawingPanel1.Size.Height / 2+150;
+                    frm.progressBar1.Maximum = n+m;
+                    frm.progressBar1.Value = 0;
+                    for (int i = 1; i <= Math.Max(n,m); i++)
+                    {
+                        ListViewItem li = listView1.Items[4];
+                        Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                        object[] tag = li.Tag as object[];
+                        ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                        float fZoom = drawingPanel1.Zoom;
+                        int delta = 100;
+                        int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                        int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                        NetworkObject shape = new NetworkObject(drawingPanel1);
+                        shape.Type = type;
+                        shape.Rect = new Rectangle(X, Y, delta, delta);
+                        shape.Name = GetUniqueShapeName(li.Text);
+                        if (type != ENetworkObjectType.UserObject)
+                            shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                        if (ItemImages.ContainsKey(li))
+                        {
+                            shape.img = new Bitmap(ItemImages[li]);
+                            shape.showBorder = type == ENetworkObjectType.SDNNode;
+                            shape.Trasparent = false;
+                        }
+                        else
+                        {//!!
+
+                            shape.showBorder = true;
+                        }
+                        drawingPanel1.ShapeCollection.AddShape(shape);
+                        X1 += 150;
+                        shapeArray[i] = shape;
+                        frm.progressBar1.PerformStep();
+                    }
+                    if (n > m) { Y1 += 250; }
+                    else Y1 -= 250;
+                    X1 = 50+150 * Math.Max(n, m) / 2 - 100 * Math.Min(n, m) / 2 - 50 * (Math.Max(n, m)-1) / 2;
+                    for (int i = 1; i <= Math.Min(n, m); i++)
+                    {
+                        ListViewItem li = listView1.Items[4];
+                        Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                        object[] tag = li.Tag as object[];
+                        ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                        float fZoom = drawingPanel1.Zoom;
+                        int delta = 100;
+                        int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                        int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                        NetworkObject shape = new NetworkObject(drawingPanel1);
+                        shape.Type = type;
+                        shape.Rect = new Rectangle(X, Y, delta, delta);
+                        shape.Name = GetUniqueShapeName(li.Text);
+                        if (type != ENetworkObjectType.UserObject)
+                            shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                        if (ItemImages.ContainsKey(li))
+                        {
+                            shape.img = new Bitmap(ItemImages[li]);
+                            shape.showBorder = type == ENetworkObjectType.SDNNode;
+                            shape.Trasparent = false;
+                        }
+                        else
+                        {//!!
+
+                            shape.showBorder = true;
+                        }
+                        for (int j = 1; j <= Math.Max(n, m);j++ )
+                            if ((drawingPanel1.ShapeCollection.GetLine(shape, shapeArray[j]) == null))
+                            {
+                                Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[j].ConnectionPoint);
+                                if (EditLink(oLink, false))
+                                    drawingPanel1.ShapeCollection.AddShape(oLink);
+                            }
+                        drawingPanel1.ShapeCollection.AddShape(shape);
+                        X1 += 150;
+                        shapeArray[i + Math.Max(n, m)] = shape;
+                        frm.progressBar1.PerformStep();
+                    }
+                    drawingPanel1.Focus();
+                    break;
+                case 6:
+                    shapeArray = new NetworkObject[n +2];
+                    X1 = 150 * n / 2;
+                    Y1 = 150;
+                    frm.progressBar1.Maximum = n+1;
+                    frm.progressBar1.Value = 0;
+                    for (int i = 1; i <= (n+1); i++)
+                    {
+                        ListViewItem li = listView1.Items[4];
+                        Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                        object[] tag = li.Tag as object[];
+                        ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                        float fZoom = drawingPanel1.Zoom;
+                        int delta = 100;
+                        int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                        int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                        NetworkObject shape = new NetworkObject(drawingPanel1);
+                        shape.Type = type;
+                        shape.Rect = new Rectangle(X, Y, delta, delta);
+                        shape.Name = GetUniqueShapeName(li.Text);
+                        if (type != ENetworkObjectType.UserObject)
+                            shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                        if (ItemImages.ContainsKey(li))
+                        {
+                            shape.img = new Bitmap(ItemImages[li]);
+                            shape.showBorder = type == ENetworkObjectType.SDNNode;
+                            shape.Trasparent = false;
+                        }
+                        else
+                        {//!!
+
+                            shape.showBorder = true;
+                        }
+                        drawingPanel1.ShapeCollection.AddShape(shape);
+                        if ((drawingPanel1.ShapeCollection.GetLine(shape, shapeArray[1]) == null)&&(i>1))
+                            {
+                                Link oLink = new Link(drawingPanel1, shape.ConnectionPoint, shapeArray[1].ConnectionPoint);
+                                if (EditLink(oLink, false))
+                                    drawingPanel1.ShapeCollection.AddShape(oLink);
+                            }
+                        
+                        shapeArray[i] = shape;
+                        if (i == 1) { Y1 += 250; X1 = 75; }
+                        else { X1 += 150;}
+                        frm.progressBar1.PerformStep();
+                    }
+                    drawingPanel1.Focus();
+                    break;
+                case 7:
+                    X1 = 50;
+                    Y1 = 75*(n/2+1);
+                    frm.progressBar1.Maximum = n;
+                    frm.progressBar1.Value = 0;
+                    for (int i = 1; i <= n; i++)
+                    {
+                        ListViewItem li = listView1.Items[4];
+                        Point pt = drawingPanel1.PointToClient(new Point(X1, Y1));
+                        object[] tag = li.Tag as object[];
+                        ENetworkObjectType type = (ENetworkObjectType)tag[1];
+
+                        float fZoom = drawingPanel1.Zoom;
+                        int delta = 100;
+                        int X = (int)((pt.X / fZoom - drawingPanel1.dx) - delta / 2);
+                        int Y = (int)((pt.Y / fZoom - drawingPanel1.dx) - delta / 2);
+                        NetworkObject shape = new NetworkObject(drawingPanel1);
+                        shape.Type = type;
+                        shape.Rect = new Rectangle(X, Y, delta, delta);
+                        shape.Name = GetUniqueShapeName(li.Text);
+                        if (type != ENetworkObjectType.UserObject)
+                            shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
+                        if (ItemImages.ContainsKey(li))
+                        {
+                            shape.img = new Bitmap(ItemImages[li]);
+                            shape.showBorder = type == ENetworkObjectType.SDNNode;
+                            shape.Trasparent = false;
+                        }
+                        else
+                        {//!!
+
+                            shape.showBorder = true;
+                        }
+                        
+                        drawingPanel1.ShapeCollection.AddShape(shape);
+                        if (i < Math.Round(q)) 
+                        {
+                            if (i % 2 != 0)
+                            { Y1 += i * 150 ;  }
+                            else { Y1 -=i*150; X1+= 150; }
+                        }
+                        else
+                        {
+                            if ((i == Math.Round(q1)) || ((i == Math.Round(q1) + 1) && (i % 2 != 0)))
+                            {
+                                if (i % 2 != 0)
+                                { Y1 += (n - i) * 150; }
+                                else { Y1 -= ((n - i - 1) * 150); X1 += 150; }
+                            }
+                            else
+                            {
+                                if (i % 2 != 0)
+                                { Y1 += (n - i) * 150; }
+                                else { Y1 -= (n - i) * 150; X1 += 150; }
+                            }
+                        }
+                        frm.progressBar1.PerformStep();
+                    }      
+                    drawingPanel1.Focus();
+                    break;
+            }
         }
     }
 }

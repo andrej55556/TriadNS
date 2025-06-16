@@ -5,15 +5,15 @@ using System.Text;
 namespace TriadCore
     {
     /// <summary>
-    /// Функции преобразования типов
+    /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     /// </summary>
     public static class Convertion
         {
         /// <summary>
-        /// Преобразование строки в целое число
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Строка</param>
-        /// <returns>Целое число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static int StrToInt( string value )
             {
             return Int32.Parse( value );
@@ -21,10 +21,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование целого числа в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Целое число</param>
-        /// <returns>Строка</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static string IntToStr( int value )
             {
             return value.ToString();
@@ -32,23 +32,23 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование строки в вещественное число
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Строка</param>
-        /// <returns>Вещественное число</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</returns>
         public static double StrToReal( string value )
             {
-            //Все точки трактуем как запятые
+            //пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             value = value.Replace( '.', ',' );
             return Double.Parse( value );
             }
 
 
         /// <summary>
-        /// Преобразование вещественного числа в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Вещественное число</param>
-        /// <returns>Строка</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static string RealToStr( double value )
             {
             return value.ToString();
@@ -56,10 +56,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование строки в логическое значение
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Строка</param>
-        /// <returns>Логическое значение</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static bool StrToBoolean( string value )
             {
             return Boolean.Parse( value );
@@ -67,10 +67,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование логического значения в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Логическое значение</param>
-        /// <returns>Строка</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static string BooleanToStr( bool value )
             {
             return value.ToString();
@@ -78,24 +78,24 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование строки в битовую строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Строка</param>
-        /// <returns>Битовая строка</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static Int64 StrToBit( string value )
             {
             Int64 bitStringValue = 0;
 
-            //Проверка на длину строки
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if ( value.Length > 64 )
-                throw new ArgumentException( "Слишком длинная битовая строка" );
+                throw new ArgumentException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" );
 
             foreach ( char ch in value )
                 {
-                //Проверка на допустимый символ
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 if ( ch != '0' && ch != '1' )
                     {
-                    throw new ArgumentException( "Недопустимый символ в битовой строке" );
+                    throw new ArgumentException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" );
                     }
                 
                 bitStringValue <<= 1;
@@ -109,10 +109,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование битовой строки в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Битовая строка</param>
-        /// <returns>Строка</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static string BitToStr( Int64 value )
             {
             StringBuilder valueStr = new StringBuilder();
@@ -135,10 +135,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование строки в символ
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Строка</param>
-        /// <returns>Символ</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static char StrToChar( string value )
             {
             return Char.Parse( value );
@@ -146,10 +146,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование символа в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Символ</param>
-        /// <returns>Строка</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static string CharToStr( char value )
             {
             return value.ToString();
@@ -157,10 +157,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование строки в массив символов
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Строка</param>
-        /// <returns>Массив символов</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static char[] StrToCharArray( string value )
             {
             return value.ToCharArray();
@@ -168,29 +168,29 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Преобразование массива символов в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Массив символов</param>
-        /// <returns>Строка</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static string CharArrayToStr( char[] value )
             {
             return new String( value );
             }
 
         /// <summary>
-        /// Преобразование в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Массив символов</param>
-        /// <returns>Строка</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static string ToStr(object value)
         {
             return value.ToString();
         }
 
         /// <summary>
-        /// Перобразование целочисленного массива в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">массив</param>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         /// <returns></returns>
         public static string IntArrayToStr(int[] value)
         {
@@ -277,7 +277,7 @@ namespace TriadCore
         }
 
         /// <summary>
-        /// массив в строку
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="array"></param>
@@ -312,11 +312,11 @@ namespace TriadCore
         }
 
         /// <summary>
-        /// Деление строки на части
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="value">Исходная строка</param>
-        /// <param name="separator">Разделитель</param>
-        /// <returns>Массив поличившихся частей</returns>
+        /// <param name="value">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="separator">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public static string[] Split( string value, char separator )
             {
             return value.Split( separator );
@@ -332,6 +332,13 @@ namespace TriadCore
         {
             return str.Contains(value);
         }
-
+        public static int[] IDtoIntArray(string value)
+        {
+            int[] res = new int[value.Length];
+            for (int i = 0; i < value.Length; i++)
+                res[i] = value[i];            
+            return res;
         }
+
+    }
     }

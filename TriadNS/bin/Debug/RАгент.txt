@@ -1,0 +1,58 @@
+routine RАгент(InOut pol[10])[Integer Id; Real X,Y]
+initial
+array[100,2] of Real Ranges;
+array[100] of Boolean Added;
+Ranges[Id,0]:=-1;
+Ranges[Id,1]:=0;
+Integer EdgesCount:=0, j, rand;
+array[4] of Real Msg, Send;
+schedule SayCoord in 1;
+endi
+event;
+Msg:=StrToRealArray(message);
+if Msg[0]=0 then
+if (Ranges[(integer)Msg[1],1]>Sqrt((X-Msg[2])*(X-Msg[2])+(Y-Msg[3])*(Y-Msg[3]))) | (!Added[(integer)Msg[1]]) then
+EdgesCount:=EdgesCount+1;
+for j:=0 to 9 do
+case pol[j]:
+Added[(integer)Msg[1]]:=true;
+Ranges[(integer)Msg[1],0]:=j;
+Ranges[(integer)Msg[1],1]:=Sqrt((X-Msg[2])*(X-Msg[2])+(Y-Msg[3])*(Y-Msg[3]));
+print "До " + RealToStr(Msg[1]+1) + " Расстояние = " + RealToStr(Ranges[(integer)Msg[1],1]);
+endc;
+endf;
+for j:=0 to 9 do
+out RealArrayToStr(Msg) through pol[j]
+endf;
+endif;
+endif;
+if Msg[0]=1 then
+if Msg[1]=Id then
+print "Пришло сообщение:" + RealToStr(Msg[3]) + " от " + RealToStr(Msg[2]+1); 
+schedule SendMessForSomeGuy in (real)((integer)(RandomRealIn(0, 50)*10000))/10000;
+else
+print "Сообщение не мне";
+out message through pol[(integer)Ranges[(integer)Msg[1],0]];
+endif;
+endif;
+schedule SendMessForSomeGuy in (real)((integer)(RandomRealIn(0, 50)*10000))/10000;
+ende
+event SayCoord;
+Send[0]:=0;
+Send[1]:=Id;
+Send[2]:=X;
+Send[3]:=Y;
+for j:=0 to 9 do
+out RealArrayToStr(Send) through pol[j]
+endf;
+ende
+event SendMessForSomeGuy;
+Send[0]:=1;
+rand := RandomIn(0,EdgesCount-1);
+Print "Послал сообщение агенту" + IntToStr(rand+1);
+Send[1]:=rand;
+Send[2]:=Id;
+Send[3]:=1234567;
+out RealArrayToStr(Send) through pol[(integer)Ranges[rand,0]]
+ende
+endrout

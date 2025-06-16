@@ -14,3 +14,11 @@ C:\Users\user\Desktop\Comp+Petri\TriadNS\DrawingPanel\obj\Release\DrawingPanel.D
 C:\Users\user\Desktop\Comp+Petri\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\Comp+Petri\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
 C:\Users\user\Desktop\Comp+Petri\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb
+C:\TriadNS\TriadNS\bin\Release\DrawingPanel.dll
+C:\TriadNS\TriadNS\bin\Release\DrawingPanel.pdb
+C:\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csprojResolveAssemblyReference.cache
+C:\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.PrintPreviewFrm.resources
+C:\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.DrawingPanel.resources
+C:\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csproj.GenerateResource.Cache
+C:\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
+C:\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb

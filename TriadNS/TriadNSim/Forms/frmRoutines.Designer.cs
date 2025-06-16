@@ -34,6 +34,7 @@
             this.bntClose = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnChange = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstRoutines
@@ -62,6 +63,7 @@
             // 
             // bntClose
             // 
+            this.bntClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bntClose.Location = new System.Drawing.Point(257, 174);
             this.bntClose.Name = "bntClose";
             this.bntClose.Size = new System.Drawing.Size(75, 23);
@@ -71,7 +73,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(93, 174);
+            this.btnDelete.Location = new System.Drawing.Point(174, 174);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 12;
@@ -89,12 +91,23 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnChange
+            // 
+            this.btnChange.Location = new System.Drawing.Point(93, 174);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(75, 23);
+            this.btnChange.TabIndex = 14;
+            this.btnChange.Text = "Изменить";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            // 
             // frmRoutines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bntClose;
             this.ClientSize = new System.Drawing.Size(341, 204);
+            this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.bntClose);
@@ -117,5 +130,6 @@
         private System.Windows.Forms.Button bntClose;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnChange;
     }
 }

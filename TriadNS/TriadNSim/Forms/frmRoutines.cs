@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.IO;
 using System.Windows.Forms;
 using TriadNSim.Ontology;
 
@@ -84,11 +84,43 @@ namespace TriadNSim.Forms
             frm.ShowDialog();
             if (frm.Successed)
             {
+                StreamWriter file = new StreamWriter(frm.ResultRoutine.Name + ".txt");
+                file.Write(frm.ResultRoutine.Text);
+                file.Close();
                 manager.AddInstance(routClass, frm.ResultRoutine);
                 manager.SaveOntology(frmMain.sOntologyPath);
                 frmChangeRoutine.SaveLastCompiledRoutine(frm.ResultRoutine.Name + ".dll");
                 ListViewItem item = new ListViewItem(frm.ResultRoutine.Name);
                 lstRoutines.Items.Add(item);
+            }
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            ListViewItem item = lstRoutines.SelectedItems[0];
+            COWLOntologyManager manager = frmMain.Instance.OntologyManager;
+            manager.RemoveClass(manager.GetClass(item.Text));
+            manager.SaveOntology(frmMain.sOntologyPath);
+            frmChangeRoutine frm = new frmChangeRoutine(frmMain.Instance.Panel);
+            frm.OnNameChecked += delegate (object s, CancelEventArgs args)
+            {
+                args.Cancel = false;
+                
+            };
+            StreamReader read = new StreamReader(item.Text + ".txt");
+            frm.SetObject(null);
+            frm.Code = read.ReadToEnd();
+            frm.ShowDialog();
+            read.Close();
+            if (frm.Successed)
+            {
+                StreamWriter file = new StreamWriter(frm.ResultRoutine.Name + ".txt");
+                file.Write(frm.ResultRoutine.Text);
+                file.Close();
+                manager.AddInstance(routClass, frm.ResultRoutine);
+                manager.SaveOntology(frmMain.sOntologyPath);
+                frmChangeRoutine.SaveLastCompiledRoutine(frm.ResultRoutine.Name + ".dll");
+                item.Text = frm.ResultRoutine.Name;
             }
         }
     }

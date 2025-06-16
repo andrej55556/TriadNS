@@ -6,31 +6,31 @@ using System.Reflection;
 namespace TriadCore
     {
     /// <summary>
-    /// Обработчик изменения
+    /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     /// </summary>
-    /// <param name="Info">Объект слежения</param>
-    /// <param name="systemTime">Время изменения</param>
+    /// <param name="Info">пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+    /// <param name="systemTime">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
     public delegate void SpyHandler( SpyObject Info, double systemTime );
 
     /// <summary>
-    /// Рутина
+    /// пїЅпїЅпїЅпїЅпїЅпїЅ
     /// </summary>
     public class Routine : ReflectionObject, ICreatable
         {
         /// <summary>
-        /// Индекс в случае отсутствия массива
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         protected const int DefaultIndex = -1;
         /// <summary>
-        /// Индекс полюса, принявшего сообщение
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private int indexOfPolusReceivedMessage = -1;
 
 
         /// <summary>
-        /// Создать новую рутину (вызывается при инициализации массивов)
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         /// </summary>
-        /// <returns>Новая рутина</returns>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public object CreateNew()
             {
             return new Routine();
@@ -38,23 +38,23 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Планирование события
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="deltaTime">Время ожидания срабатывания события</param>
-        /// <param name="eventHandlerList">Обработчики событий, происходящих в это время</param>
-        protected void Sсhedule( double deltaTime, params InternalEventHandler[] eventHandlerList )
+        /// <param name="deltaTime">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="eventHandlerList">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
+        protected void Schedule( double deltaTime, params InternalEventHandler[] eventHandlerList )
             {
             if ( this.baseNode != null )
                 {
                 foreach ( InternalEventHandler eventHandler in eventHandlerList )
                     {
-                    //Планируем через deltaTime единиц времени
+                    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ deltaTime пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     InternalEvent ev = new InternalEvent( deltaTime + this.SystemTime, this );
                     ev.EventHandler += eventHandler;
 
                     CoreName eventCoreName = new CoreName( eventHandler.Method.Name );
                     
-                    //Проверяем также обработчики ИП
+                    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
                     if ( this.spyHandlerList.ContainsKey( eventCoreName ) )
                         foreach ( SpyHandler handler in this.spyHandlerList[ eventCoreName ] )
                             {
@@ -68,22 +68,22 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Отменить ближайшие события с такими обработчиками
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="eventHandlerList">Обработчики событий</param>
+        /// <param name="eventHandlerList">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         protected void Cancel( params InternalEventHandler[] eventHandlerList )
             {
             //***********************************************
-            // Заглушка
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             //***********************************************
             }
 
         
         /// <summary>
-        /// Послать сообщение через полюс
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="message">Сообщение</param>
-        /// <param name="routinePolusName">Имя полюса рутины, через который посылается сообщение</param>
+        /// <param name="message">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="routinePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         protected void SendMessageVia( string message, CoreName routinePolusName )
             {
             if ( message == null )
@@ -91,11 +91,11 @@ namespace TriadCore
 
             if ( this.baseNode != null )
                 {
-                //Если полюс рутины связан с полюсом вершины
+                //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 if ( this.routineNodePolusPairs.ContainsKey( routinePolusName ) )
-                    //Если полюс рутины не находится в списке заблокированных
+                    //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     if ( !this.routineBlockedPolusList.Contains( routinePolusName ) )
-                        //Посылаем сообщение на связанные полюса вершины
+                        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                         foreach ( CoreName nodeCoreName in this.routineNodePolusPairs[ routinePolusName ] )
                             {
                             this.baseNode.SendMessageVia( message, nodeCoreName, this.SystemTime );
@@ -105,7 +105,7 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Послать сообщение через все полюсы
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         protected void SendMessageViaAllPoluses( string message )
             {
@@ -117,10 +117,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Послать сообщение через диапазон полюсов
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="message">Сообщение</param>
-        /// <param name="routineCoreNameRange">Диапазон полюсов рутины, через которые посылаются сообщения</param>
+        /// <param name="message">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="routineCoreNameRange">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         protected void SendMessageVia( string message, CoreNameRange routineCoreNameRange )
             {
             foreach ( CoreName routineCoreName in routineCoreNameRange )
@@ -131,10 +131,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Получить индекс полюса
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusName">Имя полюса</param>
-        /// <returns>Индекс полюса или -1, если у полюса нет индексов</returns>
+        /// <param name="polusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ -1, пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         protected int GetPolusIndex( CoreName polusName )
             {
             if ( polusName.IsIndexed )
@@ -146,23 +146,23 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Получить сообщение через полюс
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="nodePolusName">Имя полюса вершины</param>
-        /// <param name="message">Сообщение</param>
-        /// <param name="sendMessageTime">Время посылки сообщения</param>
+        /// <param name="nodePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="message">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="sendMessageTime">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void ReceiveMessage( CoreName nodePolusName, string message, double sendMessageTime )
             {
-            //Если полюс вершины связан с полюсом рутины
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if ( this.nodeRoutinePolusPairs.ContainsKey( nodePolusName ) )
                 foreach ( CoreName routineCoreName in this.nodeRoutinePolusPairs[ nodePolusName ] )
                     {
-                    //Планируем событие приема сообщения (независимо от того, заблокирован или нет полюс)
+                    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ)
                     ReceivingMessageEvent ev = new ReceivingMessageEvent( sendMessageTime, 
                         this, routineCoreName, nodePolusName, message );
                     ev.OnEventFunction += this.ReceiveMessageHandler;
 
-                    //Добавляем обработчики приема сообщений
+                    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     if ( this.spyHandlerList.ContainsKey( nodePolusName ) )
                         foreach ( SpyHandler handler in this.spyHandlerList[ nodePolusName ] )
                             {
@@ -175,23 +175,23 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Обработчик приема сообщения
-        /// Такой обработчик нужен, чтобы проверять заблокированность полюса
-        /// в нужный момент модельного времени (а не в функции ReceiveMessage)
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        /// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+        /// пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅ пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ReceiveMessage)
         /// </summary>
-        /// <param name="routinePolusName">Имя полюса, принявшего сообщение</param>
-        /// <param name="nodePolusName">Имя полюса вершины, принявшего сообщение</param>
-        /// <param name="message">Сообщение</param>
-        /// <param name="spyHandler">Обработчики принятия сообщения</param>
+        /// <param name="routinePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="nodePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="message">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="spyHandler">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         private void ReceiveMessageHandler( CoreName routinePolusName, CoreName nodePolusName,
             string message, SpyHandler spyHandler )
             {
-            //Если полюс рутины не находится в списке заблокированных
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if ( !this.routineBlockedPolusList.Contains( routinePolusName ) )
                 {
                 ReceiveMessageVia( routinePolusName, message );
 
-                //Вызываем информационные процедуры, следящие за принятием сообщений
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 if ( spyHandler != null )
                     {
                     SpyObject spyPolus = new SpyPolus( nodePolusName, this );
@@ -203,29 +203,29 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Переопределяемый обработчик сообщений
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusName">Имя полюса или массива полюсов</param>
-        /// <param name="message">Сообщение</param>
+        /// <param name="polusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="message">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         protected virtual void ReceiveMessageVia( CoreName polusName, string message )
             {
-            //Ничего не делаем
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             }
 
 
         /// <summary>
-        /// Действия по инициализации рутины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public virtual void DoInitialize()
             {
-            //Ничего не делаем
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             }
 
         
         /// <summary>
-        /// Действия по инициализации рутины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="baseNode">Родительская вершина</param>
+        /// <param name="baseNode">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void Initialize( Node baseNode )
             {
             this.baseNode = baseNode;
@@ -233,24 +233,24 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Получить копию
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <returns></returns>
         public new Routine Clone()
             {
             Routine newRoutine = base.Clone() as Routine;
 
-            //У копии должен быть свой календарь событий
+            //пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             newRoutine.eventCalendar = new Calendar();
 
-            //Копируем список заблокированных полюсов
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             newRoutine.routineBlockedPolusList = new List<CoreName>();
             foreach ( CoreName coreName in this.routineBlockedPolusList )
                 newRoutine.routineBlockedPolusList.Add( coreName );
 
             //**********************************************************
-            //Список соответствий у клонированных рутин тоже надо клонировать,
-            //т.к. рутина может накладываться несколько раз с разными соответствиями
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ,
+            //пїЅ.пїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             //**********************************************************
             newRoutine.routineNodePolusPairs = new SortedList<CoreName, List<CoreName>>();
             foreach ( KeyValuePair<CoreName, List<CoreName>> pair in this.routineNodePolusPairs )
@@ -265,10 +265,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Добавить соответствие между именем полюса в вершине и в рутине
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="routinePolusName">Имя полюса в рутине</param>
-        /// <param name="nodePolusName">Имя полюса в вершине</param>
+        /// <param name="routinePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="nodePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void AddPolusPair( CoreName routinePolusName, CoreName nodePolusName )
             {
             if ( !this.nodeRoutinePolusPairs.ContainsKey( nodePolusName ) )
@@ -282,10 +282,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Добавить соответствие между полюсом рутины и каждым полюсом вершины из списка
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="routinePolusName">Полюс рутины</param>
-        /// <param name="nodePolusNameRange">Список полюсов вершины</param>
+        /// <param name="routinePolusName">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="nodePolusNameRange">пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void AddPolusPair( CoreName routinePolusName, CoreNameRange nodePolusNameRange )
             {
             foreach ( CoreName nodePolusName in nodePolusNameRange )
@@ -294,10 +294,10 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Добавить соответствие между каждым полюсом рутины из списка и полюсом вершины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="routinePolusNameRange">Список полюсов рутины</param>
-        /// <param name="nodePolusName">Полюс вершины</param>
+        /// <param name="routinePolusNameRange">пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="nodePolusName">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void AddPolusPair( CoreNameRange routinePolusNameRange, CoreName nodePolusName )
             {
             foreach ( CoreName routinePolusName in routinePolusNameRange )
@@ -306,7 +306,7 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Добавить соответствие между списками полюсов рутины и вершины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <param name="routinePolusNameRange"></param>
         /// <param name="nodePolusNameRange"></param>
@@ -324,7 +324,7 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Очистить список соответствий между именами полюсов в структуре и в рутине
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public void ClearPolusPairList()
             {
@@ -334,7 +334,7 @@ namespace TriadCore
 
         
         /// <summary>
-        /// Системное время
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         protected override double SystemTime
             {
@@ -347,9 +347,9 @@ namespace TriadCore
 
         
         /// <summary>
-        /// Заблокировать полюс для посылки/принятия сообщений
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="routinePolusName">Имя полюса в рутине</param>
+        /// <param name="routinePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void BlockPolus( CoreName routinePolusName )
             {
             if ( !this.routineBlockedPolusList.Contains( routinePolusName ) )
@@ -358,9 +358,9 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Заблокировать полюс для посылки/принятия сообщений
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="routineNameRange">Диапазон имен полюсов в рутине</param>
+        /// <param name="routineNameRange">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void BlockPolus( CoreNameRange routineNameRange )
             {
             foreach( CoreName coreName in routineNameRange )
@@ -371,22 +371,22 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Заблокировать полюс для посылки/принятия сообщений
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="nodePolusName">Имя полюса в вершине</param>
+        /// <param name="nodePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void BlockNodePolus( CoreName nodePolusName )
             {
             if ( this.nodeRoutinePolusPairs.ContainsKey( nodePolusName ) )
-                //Блокируем все связанные с полюсом вершины полюса рутины
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 foreach ( CoreName routinePolusName in this.nodeRoutinePolusPairs[ nodePolusName ] )
                     BlockPolus( routinePolusName );
             }
 
 
         /// <summary>
-        /// Разблокировать полюс для посылки/принятия сообщений
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="routinePolusName">Имя полюса рутины</param>
+        /// <param name="routinePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void UnblockPolus( CoreName routinePolusName )
             {
             if ( this.routineBlockedPolusList.Contains( routinePolusName ) )
@@ -395,9 +395,9 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Разблокировать полюс для посылки/принятия сообщений
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="routineNameRange">Диапазон имен полюсов рутины</param>
+        /// <param name="routineNameRange">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void UnblockPolus( CoreNameRange routineNameRange )
             {
             foreach ( CoreName coreName in routineNameRange )
@@ -408,22 +408,22 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Разблокировать полюс для посылки/принятия сообщений
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="nodePolusName">Имя полюса вершины</param>
+        /// <param name="nodePolusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void UnblockNodePolus( CoreName nodePolusName )
             {
             if ( this.nodeRoutinePolusPairs.ContainsKey( nodePolusName ) )
-                //Разлокируем все связанные с полюсом вершины полюса рутины
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 foreach ( CoreName routinePolusName in this.nodeRoutinePolusPairs[ nodePolusName ] )
                     UnblockPolus( routinePolusName );
             }
 
 
         /// <summary>
-        /// Отладочная печать
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="message">Сообщение</param>
+        /// <param name="message">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         protected void PrintMessage( object message )
             {
                 if ( message != null )
@@ -439,7 +439,7 @@ namespace TriadCore
 
         
         /// <summary>
-        /// Календарь событий рутины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public Calendar EventCalendar
             {
@@ -451,24 +451,24 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Вершина, содержащая рутину
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private Node baseNode = null;
         /// <summary> 
-        /// Календарь событий
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private Calendar eventCalendar = new Calendar();
 
         /// <summary>
-        /// Список соответствий вида: Key - имя полюса в рутине; Value - имена связанных с ним полюсов в вершине
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: Key - пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ; Value - пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private SortedList<CoreName, List<CoreName>> routineNodePolusPairs = new SortedList<CoreName, List<CoreName>>();
         /// <summary>
-        /// Список соответствий вида: Key - имя полюса в вершине; Value - имена связанных с ним полюсов в рутине
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: Key - пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ; Value - пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private SortedList<CoreName, List<CoreName>> nodeRoutinePolusPairs = new SortedList<CoreName, List<CoreName>>();
         /// <summary>
-        /// Список заблокированных для посылки/принятия сообщений полюсов рутины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private List<CoreName> routineBlockedPolusList = new List<CoreName>();
         }

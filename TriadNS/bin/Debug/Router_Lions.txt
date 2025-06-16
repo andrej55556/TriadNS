@@ -1,0 +1,33 @@
+routine Router_Lions(InOut Con[10])[Integer ID, population]
+initial
+array[6] of Real RecvFromNodes;
+array[6] of Integer SendToNodes;
+array[10] of Real fitness, successProbability;
+real prey := RandomRealIn(0,2);
+real fitnessSum, bestFitness := 0;
+array[10] of Real nomad;
+integer Cid, CLid, HC, NN, PNid, PRid, id;
+schedule InitStart in population + 1;
+endi
+event;
+RecvFromNodes:= StrToRealArray(message);
+if RecvFromNodes[0] = 9 then
+id := (integer)RecvFromNodes[1];
+fitness[id]:= RecvFromNodes[2]/ RecvFromNodes[3];
+if bestFitness < fitness[id] then
+bestFitness := fitness[id];
+CLid := id;
+endif;
+print "Узел " + IntToStr(id) + " имеет фитнесс: " + RealToStr(fitness[id]);
+endif;
+ende
+event InitStart;
+Cid := ID;
+print "Лидер кластера узел с номером - " + IntToStr(CLid);
+SendToNodes[0] := 0;
+SendToNodes[1] := Cid;
+SendToNodes[2] := CLid;
+SendToNodes[3] := population;
+out IntArrayToStr(SendToNodes);
+ende
+endrout

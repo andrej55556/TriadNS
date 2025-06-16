@@ -1,0 +1,811 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|c:\\users\\andrey\\downloads\\telegram desktop\\triadns\\triadns\\triadns\\triadcore\\\u0440\u0443\u0442\u0438\u043D\u044B\\routine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u0440\u0443\u0442\u0438\u043D\u044B\\routine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\polus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\polus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\nsstructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\nsstructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\nssimcondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\nssimcondition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\nsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\nsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\nsdesign.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\nsdesign.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\simulationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\simulationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadpad\\io.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|solutionrelative:triadpad\\io.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadpad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|solutionrelative:triadpad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadpad\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|solutionrelative:triadpad\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37AB8C52-17C6-4330-A2D3-8FD32988A684}|TriadCompiler\\TriadCompiler.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcompiler\\test\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37AB8C52-17C6-4330-A2D3-8FD32988A684}|TriadCompiler\\TriadCompiler.csproj|solutionrelative:triadcompiler\\test\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37AB8C52-17C6-4330-A2D3-8FD32988A684}|TriadCompiler\\TriadCompiler.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcompiler\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37AB8C52-17C6-4330-A2D3-8FD32988A684}|TriadCompiler\\TriadCompiler.csproj|solutionrelative:triadcompiler\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmsimulate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmsimulate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\standartfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\standartfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\testfunction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\testfunction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\shortestpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\shortestpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\spanningtree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\spanningtree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadpad\\forms\\formmain\\formmain_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|solutionrelative:triadpad\\forms\\formmain\\formmain_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadpad\\forms\\formmain\\formmain_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|solutionrelative:triadpad\\forms\\formmain\\formmain_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmroutines.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmroutines.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u0444\u0443\u043D\u043A\u0446\u0438\u0438\\convertion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u0444\u0443\u043D\u043A\u0446\u0438\u0438\\convertion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadpad\\forms\\formmain\\formmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2F862A11-139B-4197-AF88-911A959D2918}|TriadPad\\TriadPad.csproj|solutionrelative:triadpad\\forms\\formmain\\formmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\scc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\scc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\maxflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\maxflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\matching.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\matching.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\arc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u043C\u043E\u0438 \u0444\u0443\u043D\u043A\u0446\u0438\u0438\\arc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u0444\u0443\u043D\u043A\u0446\u0438\u0438\\setfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u0444\u0443\u043D\u043A\u0446\u0438\u0438\\setfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u0444\u0443\u043D\u043A\u0446\u0438\u0438\\random.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u0444\u0443\u043D\u043A\u0446\u0438\u0438\\random.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u0444\u0443\u043D\u043A\u0446\u0438\u0438\\math.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FDBD413-AC61-454E-B066-77D1F01BECC9}|TriadCore\\TriadCore.csproj|solutionrelative:triadcore\\\u043E\u0431\u0449\u0435\u0435\\\u0444\u0443\u043D\u043A\u0446\u0438\u0438\\math.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37AB8C52-17C6-4330-A2D3-8FD32988A684}|TriadCompiler\\TriadCompiler.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcompiler\\\u0440\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0440\u0443\u0442\u0438\u043D\u0430\\routineparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37AB8C52-17C6-4330-A2D3-8FD32988A684}|TriadCompiler\\TriadCompiler.csproj|solutionrelative:triadcompiler\\\u0440\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0440\u0443\u0442\u0438\u043D\u0430\\routineparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37AB8C52-17C6-4330-A2D3-8FD32988A684}|TriadCompiler\\TriadCompiler.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadcompiler\\\u0440\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0440\u0443\u0442\u0438\u043D\u0430\\routineparser_stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37AB8C52-17C6-4330-A2D3-8FD32988A684}|TriadCompiler\\TriadCompiler.csproj|solutionrelative:triadcompiler\\\u0440\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0440\u0443\u0442\u0438\u043D\u0430\\routineparser_stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmobjectip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmobjectip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmroutines.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmroutines.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmobjectips.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmobjectips.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmiprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmiprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmiconditions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmiconditions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmgraphconst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmgraphconst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmeditpolus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmeditpolus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmeditbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmeditbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmcalculate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmcalculate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\editforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\editforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\forms\\frmaddelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\forms\\frmaddelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\clientroutine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\clientroutine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\ontology\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\ontology\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\triadnsim\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1B458B23-AED1-4241-9D73-B963B29A813B}|TriadNSim\\TriadNSim.csproj|solutionrelative:triadnsim\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Routine.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u0420\u0443\u0442\u0438\u043D\u044B\\Routine.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u0420\u0443\u0442\u0438\u043D\u044B\\Routine.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u0420\u0443\u0442\u0438\u043D\u044B\\Routine.cs",
+              "RelativeToolTip": "TriadCore\\\u0420\u0443\u0442\u0438\u043D\u044B\\Routine.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAgwCwAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:08:55.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NSStructure.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\NSStructure.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\NSStructure.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\NSStructure.cs",
+              "RelativeToolTip": "TriadNSim\\NSStructure.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:50:30.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NSSimCondition.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\NSSimCondition.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\NSSimCondition.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\NSSimCondition.cs",
+              "RelativeToolTip": "TriadNSim\\NSSimCondition.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:50:29.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NSDesign.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\NSDesign.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\NSDesign.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\NSDesign.cs",
+              "RelativeToolTip": "TriadNSim\\NSDesign.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:50:27.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SimulationInfo.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\SimulationInfo.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\SimulationInfo.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\SimulationInfo.cs",
+              "RelativeToolTip": "TriadNSim\\SimulationInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:50:24.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Simulation.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Simulation.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Simulation.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Simulation.cs",
+              "RelativeToolTip": "TriadNSim\\Simulation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T12:05:46.385Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IO.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\IO.cs",
+              "RelativeDocumentMoniker": "TriadPad\\IO.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\IO.cs*",
+              "RelativeToolTip": "TriadPad\\IO.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:49:58.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Program.cs",
+              "RelativeDocumentMoniker": "TriadPad\\Program.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Program.cs",
+              "RelativeToolTip": "TriadPad\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:49:52.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Settings.cs",
+              "RelativeDocumentMoniker": "TriadPad\\Settings.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Settings.cs",
+              "RelativeToolTip": "TriadPad\\Settings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:49:48.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Test.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCompiler\\Test\\Test.cs",
+              "RelativeDocumentMoniker": "TriadCompiler\\Test\\Test.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCompiler\\Test\\Test.cs*",
+              "RelativeToolTip": "TriadCompiler\\Test\\Test.cs*",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAAE0AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:45:41.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCompiler\\Main.cs",
+              "RelativeDocumentMoniker": "TriadCompiler\\Main.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCompiler\\Main.cs*",
+              "RelativeToolTip": "TriadCompiler\\Main.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:45:25.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Program.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Program.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Program.cs",
+              "RelativeToolTip": "TriadNSim\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T16:15:07.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Polus.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\Polus.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\Polus.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\Polus.cs*",
+              "RelativeToolTip": "TriadCore\\\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\Polus.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T18:50:40.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Random.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Random.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Random.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Random.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Random.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAIBJwDcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:58:38.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Node.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\Node.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\Node.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\Node.cs",
+              "RelativeToolTip": "TriadCore\\\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u044B\\Node.cs",
+              "ViewState": "AQIAAF8CAAAAAAAAAAAAAF8CAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T16:23:27.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "FormMain_Menu.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Forms\\FormMain\\FormMain_Menu.cs",
+              "RelativeDocumentMoniker": "TriadPad\\Forms\\FormMain\\FormMain_Menu.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Forms\\FormMain\\FormMain_Menu.cs",
+              "RelativeToolTip": "TriadPad\\Forms\\FormMain\\FormMain_Menu.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAwA4AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:09:25.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Arc.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Arc.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Arc.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Arc.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Arc.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:59:43.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NSModel.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\NSModel.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\NSModel.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\NSModel.cs",
+              "RelativeToolTip": "TriadNSim\\NSModel.cs",
+              "ViewState": "AQIAAJ8EAAAAAAAAAAAkwKcEAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T14:30:30.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FormMain_Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Forms\\FormMain\\FormMain_Menu.cs",
+              "RelativeDocumentMoniker": "TriadPad\\Forms\\FormMain\\FormMain_Menu.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Forms\\FormMain\\FormMain_Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadPad\\Forms\\FormMain\\FormMain_Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T15:17:48.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "app.config",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\app.config",
+              "RelativeDocumentMoniker": "TriadNSim\\app.config",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\app.config",
+              "RelativeToolTip": "TriadNSim\\app.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-04-25T18:14:33.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SpanningTree.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\SpanningTree.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\SpanningTree.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\SpanningTree.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\SpanningTree.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:00:20.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RoutineParser_Stat.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCompiler\\\u0420\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0420\u0443\u0442\u0438\u043D\u0430\\RoutineParser_Stat.cs",
+              "RelativeDocumentMoniker": "TriadCompiler\\\u0420\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0420\u0443\u0442\u0438\u043D\u0430\\RoutineParser_Stat.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCompiler\\\u0420\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0420\u0443\u0442\u0438\u043D\u0430\\RoutineParser_Stat.cs",
+              "RelativeToolTip": "TriadCompiler\\\u0420\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0420\u0443\u0442\u0438\u043D\u0430\\RoutineParser_Stat.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAIBJwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:58:09.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "frmMain.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmMain.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmMain.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmMain.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmMain.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:22:08.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmMain.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmMain.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmMain.cs",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmMain.cs",
+              "ViewState": "AQIAAFIBAAAAAAAAAAAkwFoBAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:22:17.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Matching.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Matching.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Matching.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Matching.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Matching.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:59:45.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "frmSimulate.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmSimulate.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmSimulate.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmSimulate.cs",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmSimulate.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAAwCYAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T16:15:01.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "RoutineParser.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCompiler\\\u0420\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0420\u0443\u0442\u0438\u043D\u0430\\RoutineParser.cs",
+              "RelativeDocumentMoniker": "TriadCompiler\\\u0420\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0420\u0443\u0442\u0438\u043D\u0430\\RoutineParser.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCompiler\\\u0420\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0420\u0443\u0442\u0438\u043D\u0430\\RoutineParser.cs",
+              "RelativeToolTip": "TriadCompiler\\\u0420\u0430\u0437\u0431\u043E\u0440 \u043A\u043E\u0434\u0430\\\u0420\u0443\u0442\u0438\u043D\u0430\\RoutineParser.cs",
+              "ViewState": "AQIAAPQAAAAAAAAAAIBJwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:57:55.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "StandartFunctions.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\StandartFunctions.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\StandartFunctions.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\StandartFunctions.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\StandartFunctions.cs",
+              "ViewState": "AQIAACgBAAAAAAAAAAAAAMYBAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:00:21.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ShortestPath.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\ShortestPath.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\ShortestPath.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\ShortestPath.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\ShortestPath.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:59:49.771Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TestFunction.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\TestFunction.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\TestFunction.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\TestFunction.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\TestFunction.cs",
+              "ViewState": "AQIAAB4BAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:00:47.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Convertion.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Convertion.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Convertion.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Convertion.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Convertion.cs",
+              "ViewState": "AQIAACUBAAAAAAAAAIBJwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:00:53.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Math.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Math.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Math.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Math.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Math.cs",
+              "ViewState": "AQIAAJEAAAAAAAAAAIBJwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:01:08.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "SetFunctions.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\SetFunctions.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\SetFunctions.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\SetFunctions.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u0424\u0443\u043D\u043A\u0446\u0438\u0438\\SetFunctions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:01:30.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "MaxFlow.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\MaxFlow.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\MaxFlow.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\MaxFlow.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\MaxFlow.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:02:39.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Scc.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Scc.cs",
+              "RelativeDocumentMoniker": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Scc.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Scc.cs",
+              "RelativeToolTip": "TriadCore\\\u041E\u0431\u0449\u0435\u0435\\\u041C\u043E\u0438 \u0424\u0443\u043D\u043A\u0446\u0438\u0438\\Scc.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:02:45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "frmRoutines.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmRoutines.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmRoutines.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmRoutines.cs",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmRoutines.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAIBQwGMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:27:35.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FormMain.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Forms\\FormMain\\FormMain.cs",
+              "RelativeDocumentMoniker": "TriadPad\\Forms\\FormMain\\FormMain.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadPad\\Forms\\FormMain\\FormMain.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadPad\\Forms\\FormMain\\FormMain.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:21:15.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "frmRoutines.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmRoutines.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmRoutines.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmRoutines.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmRoutines.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:22:26.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "frmObjectIPs.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmObjectIPs.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmObjectIPs.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmObjectIPs.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmObjectIPs.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:22:25.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "frmObjectIP.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmObjectIP.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmObjectIP.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmObjectIP.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmObjectIP.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:22:09.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "frmIProcedures.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmIProcedures.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmIProcedures.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmIProcedures.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmIProcedures.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:22:06.092Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "frmIConditions.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmIConditions.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmIConditions.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmIConditions.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmIConditions.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:22:04.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "frmGraphConst.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmGraphConst.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmGraphConst.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmGraphConst.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmGraphConst.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:22:02.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "frmEditPolus.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmEditPolus.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmEditPolus.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmEditPolus.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmEditPolus.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:21:55.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "frmEditBase.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmEditBase.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmEditBase.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmEditBase.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmEditBase.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:21:47.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "frmCalculate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmCalculate.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmCalculate.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmCalculate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmCalculate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:21:46.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "frmAddElement.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmAddElement.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\frmAddElement.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\frmAddElement.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\frmAddElement.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:21:42.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "EditForms.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\EditForms.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\Forms\\EditForms.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Forms\\EditForms.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "TriadNSim\\Forms\\EditForms.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:21:42.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Ontology\\App.config",
+              "RelativeDocumentMoniker": "TriadNSim\\Ontology\\App.config",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\Ontology\\App.config",
+              "RelativeToolTip": "TriadNSim\\Ontology\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwAQAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-04-25T18:15:07.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "ClientRoutine.cs",
+              "DocumentMoniker": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\ClientRoutine.cs",
+              "RelativeDocumentMoniker": "TriadNSim\\ClientRoutine.cs",
+              "ToolTip": "C:\\Users\\andrey\\Downloads\\Telegram Desktop\\TriadNS\\TriadNS\\TriadNS\\TriadNSim\\ClientRoutine.cs",
+              "RelativeToolTip": "TriadNSim\\ClientRoutine.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAjwBgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T18:11:40.014Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

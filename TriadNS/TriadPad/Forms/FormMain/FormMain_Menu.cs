@@ -6,28 +6,28 @@ using System.Windows.Forms;
 namespace TriadPad.Forms
     {
     /// <summary>
-    /// Обработчики меню главной формы
+    /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     /// </summary>
     partial class FormMain
         {
         /// <summary>
-        /// Название главной формы
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        private const string MainFormText = "Система Triad.NET";
+        private const string MainFormText = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Triad.NET";
         /// <summary>
-        /// Название нового файла
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        private const string NewFileName = "Новый.txt";
+        private const string NewFileName = "пїЅпїЅпїЅпїЅпїЅ.txt";
 
 
-        //Меню - Новый файл
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         private void tsmiNewFile_Click( object sender, EventArgs e )
             {
             CreateNewFile();
             }
         
 
-        //Меню - Открыть файл
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         private void tsmiOpenFile_Click( object sender, EventArgs e )
             {
             if ( this.openFileDialog.ShowDialog() == DialogResult.OK )
@@ -37,21 +37,21 @@ namespace TriadPad.Forms
             }        
 
 
-        //Меню - Выход
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅ
         private void tsmiExit_Click( object sender, EventArgs e )
             {
             this.Close();
             }
 
 
-        //Меню - Сохранить
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiSave_Click( object sender, EventArgs e )
             {
             if ( currFileName != NewFileName )
                 {
                 this.rtbText.SaveFile( currFileName, RichTextBoxStreamType.PlainText );
                 }
-            //Иначе - Сохранить как...
+            //пїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ...
             else
                 {
                 tsmiSaveAs_Click( this, new EventArgs() );
@@ -59,7 +59,7 @@ namespace TriadPad.Forms
             }
 
 
-        //Меню - Сохранить как
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
         private void tsmiSaveAs_Click( object sender, EventArgs e )
             {
             if ( this.saveFileDialog.ShowDialog() == DialogResult.OK )
@@ -69,35 +69,35 @@ namespace TriadPad.Forms
             }
 
 
-        //Меню - Транслировать
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiTranslate_Click( object sender, EventArgs e )
             {
             Translate();
             }
 
 
-        //Меню - Компилировать
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiCompile_Click( object sender, EventArgs e )
             {
             Compile();
             }
 
 
-        //Меню - Компилировать и выполнить
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiCompileAndRun_Click( object sender, EventArgs e )
             {
             CompileAndRun();
             }
 
 
-        //Меню - Выполнить
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiRun_Click( object sender, EventArgs e )
             {
             RunProgram();
             }
 
 
-        //Меню - О программе
+        //пїЅпїЅпїЅпїЅ - пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiAbout_Click( object sender, EventArgs e )
             {
             AboutBox aboutBox = new AboutBox();
@@ -105,7 +105,7 @@ namespace TriadPad.Forms
             }
 
 
-        //Меню - Опции компиляции
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiOptions_Click( object sender, EventArgs e )
             {
             FormOptions formOptions = new FormOptions();
@@ -113,35 +113,35 @@ namespace TriadPad.Forms
             }
 
 
-        //Меню - Перейти
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiGoTo_Click( object sender, EventArgs e )
             {
             FormGoTo.Instance.Go( this.rtbText );
             }
 
 
-        //Меню - Найти
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅ
         private void tsmiFind_Click( object sender, EventArgs e )
             {
             FormFind.Instance.Find( this.rtbText );
             }
 
 
-        //Меню - Найти и заменить
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiReplace_Click( object sender, EventArgs e )
             {
             FormReplace.Instance.Replace( this.rtbText );
             }
 
 
-        //Меню - Вырезать
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiCut_Click( object sender, EventArgs e )
             {
             this.rtbText.Cut();
             }
 
 
-        //Меню - Копировать
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiCopy_Click( object sender, EventArgs e )
             {
             if ( this.rtbText.Focused )
@@ -151,85 +151,85 @@ namespace TriadPad.Forms
             }
 
 
-        //Меню - Вставить
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiPaste_Click( object sender, EventArgs e )
             {
             this.rtbText.Paste();
             }
 
 
-        //Меню - Выделить все
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
         private void tsmiSelectAll_Click( object sender, EventArgs e )
             {
             this.rtbText.SelectAll();
             }
 
 
-        //Меню - Отменить
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiUndo_Click( object sender, EventArgs e )
             {
             this.rtbText.Undo();
             }
 
 
-        //Меню - Закомментировать
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiComment_Click( object sender, EventArgs e )
             {
             this.Comment();
             }
 
 
-        //Меню - Убрать комментарий
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiUncomment_Click( object sender, EventArgs e )
             {
             this.Uncomment();
             }
 
 
-        //Меню - Увеличить отступ
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiIncreaseIndent_Click( object sender, EventArgs e )
             {
             this.IncreaseIndent();
             }
 
 
-        //Меню - Уменьшить отступ
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiDecreaseIndent_Click( object sender, EventArgs e )
             {
             this.DecreaseIndent();
             }
 
 
-        //Меню - Вырезать текущую строку
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiCutCurrentLine_Click( object sender, EventArgs e )
             {
             this.rtbText.CutCurrentLine();
             }
 
 
-        //Меню - Перевести в верхний регистр
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiToUpper_Click( object sender, EventArgs e )
             {
             this.SetSelectedTextToUpper();
             }
 
 
-        //Меню - Перевести в нижний регистр
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiToLower_Click( object sender, EventArgs e )
             {
             this.SetSelectedTextToLower();
             }
 
 
-        //Меню - Задать опции
-        private void параметрыToolStripMenuItem_Click( object sender, EventArgs e )
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        private void РїР°СЂР°РјРµС‚СЂС‹ToolStripMenuItem_Click( object sender, EventArgs e )
             {
             FormOptions formOptions = new FormOptions();
             formOptions.ShowDialog();
             }
 
 
-        //Меню - Экспорт опций
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         private void tsmiExportOptions_Click( object sender, EventArgs e )
             {
             if ( this.saveOptionDialog.ShowDialog() == DialogResult.OK )
@@ -239,7 +239,7 @@ namespace TriadPad.Forms
             }
 
 
-        //Меню - Импорт опций
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         private void tsmiImportOptions_Click( object sender, EventArgs e )
             {
             if ( this.openOptionDialog.ShowDialog() == DialogResult.OK )
@@ -249,32 +249,32 @@ namespace TriadPad.Forms
             }
 
 
-        //Меню - Установить опции по умолчанию
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiSetOptionDefaultValue_Click( object sender, EventArgs e )
             {
             Options.Instance.SetDefaultValues();
             }
 
 
-        //Меню - Быстрая печать
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiQuickPrint_Click( object sender, EventArgs e )
             {
             this.rtbText.PrintRichTextContents();
             }
 
-        //Меню - Параметры печати
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiPrintSetup_Click( object sender, EventArgs e )
             {
             SetPrintParameters();
             }
 
-        //Меню - Печать
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiPrint_Click( object sender, EventArgs e )
             {
             PrintCurrentDocument();
             }
 
-        //Меню - Предварительный просмотр
+        //пїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         private void tsmiPrintPreview_Click( object sender, EventArgs e )
             {
             PrintPreviewDocument();

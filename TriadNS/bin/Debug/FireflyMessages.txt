@@ -1,0 +1,171 @@
+routine FireflyMessages(InOut pol[100])[Integer ID, PacketTime, Radius; Real MinCoord,MaxCoord,yota,rand]
+initial;
+Real messageCount, messageSend, messageAccept, messageDied := 0;
+Integer i,j,await, maxJ, DestId, Population;
+Real func,X,Y,B,r,alpfa, xBest, xgBest, yBest, ygBest, BStart, maxBr, funcBest,
+funcFind, funcGl;
+Array[7] of Real Send,Recv;
+array[100] of Real attractiveness, Xs, Ys, Distances;
+X:=RandomRealIn(MinCoord,MaxCoord);
+Y:=RandomRealIn(MinCoord,MaxCoord);
+Print "Начальное значение координаты: " + RealToStr(X)+":"+ RealToStr(Y);
+BStart:=RandomRealIn(0,10);
+xBest := X;
+yBest := Y;
+xgBest := X;
+ygBest := Y;
+func:=(1.5 - X+X*Y)^2+(2.25 - X+X*Y^2)^2+(2.625 - X+X*Y^3)^2;
+funcBest:=func;
+funcGl:=func;
+funcFind:=0;
+Population:=1;
+Send[0]:=ID;
+Send[1]:=X;
+Send[2]:=Y;
+Send[3]:=funcBest;
+Send[4]:=BStart;
+Send[5]:=xBest;
+Send[6]:=yBest;
+
+for j := 0 to 19 do
+out RealArrayToStr(Send) through pol[j];
+endf;
+schedule Move in 1;
+schedule SendPacket in 2;
+endi
+event;
+Recv:=StrToRealArray(message);
+if Recv[0]=-7 then
+if Recv[3]=ID then
+Print "Сообщение мне";
+messageAccept:= messageAccept + 1;
+schedule SendPacket in 1;
+else
+if Recv[2]-1=0 then
+Print "Сообщение погибло";
+messageDied:= messageDied + 1;
+else
+	i := 0;
+           	for j:= 1 to 99 do
+            		if Distances[j] < Distances[i] then
+            			i := j; 
+            		endif;
+            endf;
+Print "Сообщение для узла " + IntToStr(DestId);
+messageCount:= messageCount + 1;
+Send[0]:=-7;
+Send[1]:=Recv[1];
+Send[2]:=Recv[2]-1;
+Send[3]:=Recv[3];
+out RealArrayToStr(Send) through pol[i];
+endif;
+endif;
+else
+r:=(X*X-Recv[1]*Recv[1])+(Y*Y-Recv[2]*Recv[2]);
+B:=Recv[4]/(1+yota*r);
+attractiveness[(Integer)Recv[0]] := B;
+
+Xs[(Integer)Recv[0]] := Recv[1];
+Ys[(Integer)Recv[0]] := Recv[2];
+Population:=Population+1;
+Distances[(Integer)Recv[0]]
+:=
+Sqrt((Recv[1]-X)*(Recv[1]-X)+(Recv[2]-
+Y)*(Recv[2]-Y));
+if Recv[3]<funcGl then
+funcGl:=Recv[3];
+xgBest:=xBest;
+ygBest:=yBest;
+endif;
+endif;
+ende
+
+event SendPacket;
+i := 0;
+    for j:=1 to 99 do
+        if Distances[j] > Distances[i] then
+            if Distances[j] < Radius then
+                i:=j;
+            endif;
+        endif;
+    endf;
+DestId := RandomIn(0, Population-1);
+Print "Посылаю сообщение узлу " + IntToStr(DestId);
+messageSend:= messageSend + 1;
+Send[0]:=-7;
+Send[1]:=17061997;
+Send[2]:=PacketTime;
+Send[3]:=DestId;
+out RealArrayToStr(Send) through pol[i];
+ende
+event Move;
+alpfa:=RandomRealIn(-1,1);
+maxJ := 0;
+    for j:=1 to 99 do
+        if attractiveness[j] > attractiveness[maxJ] then
+            maxJ:=j;
+        endif;
+    endf;
+if maxJ != ID then
+X:=X+attractiveness[maxJ]*(X-Xs[maxJ])+alpfa*rand;
+
+Y:=Y+attractiveness[maxJ]*(Y-Ys[maxJ])+alpfa*rand;
+if X>MaxCoord then
+X:=MinCoord;
+endif;
+if X<MinCoord then
+X:=MaxCoord;
+endif;
+if Y>MaxCoord then
+Y:=MinCoord;
+endif;
+if Y<MinCoord then
+Y:=MaxCoord;
+endif;
+Print "Двигаюсь к светлячку " + IntToStr((Integer)Recv[0]) + " теперь значение
+координаты: " + RealToStr(X)+":"+ RealToStr(Y);
+else
+X:=X+alpfa*rand;
+Y:=Y+alpfa*rand;
+if X>MaxCoord then
+X:=MinCoord;
+endif;
+if X<MinCoord then
+X:=MaxCoord;
+endif;
+if Y>MaxCoord then
+Y:=MinCoord;
+endif;
+if Y<MinCoord then
+Y:=MaxCoord;
+endif;
+
+Print "Двигаюсь случайно, теперь значение координаты: " + RealToStr(X)+":"+
+RealToStr(Y);
+endif;
+func:=(1.5 - X+X*Y)^2+(2.25 - X+X*Y^2)^2+(2.625 - X+X*Y^3)^2;
+if func<funcBest then
+funcBest:=func;
+xBest:=X;
+yBest:=Y;
+endif;
+if funcBest<funcGl then
+funcGl:=funcBest;
+xgBest:=xBest;
+ygBest:=yBest;
+endif;
+Send[0]:=ID;
+Send[1]:=X;
+Send[2]:=Y;
+Send[3]:=funcBest;
+Send[4]:=BStart;
+Send[5]:=xBest;
+Send[6]:=yBest;
+for j := 0 to 19 do
+out RealArrayToStr(Send) through pol[j];
+endf;
+if funcFind!=funcGl then
+schedule Move in 1;
+endif;
+ende
+endrout

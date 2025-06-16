@@ -1,0 +1,24 @@
+C:\Users\Georgii\Desktop\Новая папка\TriadNS\TriadNS\bin\Debug\TriadRunner.exe
+C:\Users\Georgii\Desktop\Новая папка\TriadNS\TriadNS\bin\Debug\TriadRunner.pdb
+C:\Users\Georgii\Desktop\Новая папка\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\Georgii\Desktop\Новая папка\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+C:\Users\Georgii\Desktop\Новая папка\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb
+C:\Users\Georgii\Desktop\triad\TriadNS\TriadNS\bin\Debug\TriadRunner.exe
+C:\Users\Georgii\Desktop\triad\TriadNS\TriadNS\bin\Debug\TriadRunner.pdb
+C:\Users\Georgii\Desktop\triad\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\Georgii\Desktop\triad\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+C:\Users\Georgii\Desktop\triad\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb
+D:\TriadNS\TriadNS\bin\Debug\TriadRunner.exe
+D:\TriadNS\TriadNS\bin\Debug\TriadRunner.pdb
+D:\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojAssemblyReference.cache
+D:\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.csproj.CoreCompileInputs.cache
+D:\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.csproj.CopyComplete
+D:\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+D:\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb
+C:\Users\andrey\Downloads\Telegram Desktop\TriadNS\TriadNS\TriadNS\bin\Debug\TriadRunner.exe
+C:\Users\andrey\Downloads\Telegram Desktop\TriadNS\TriadNS\TriadNS\bin\Debug\TriadRunner.pdb
+C:\Users\andrey\Downloads\Telegram Desktop\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.csproj.AssemblyReference.cache
+C:\Users\andrey\Downloads\Telegram Desktop\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.csproj.CoreCompileInputs.cache
+C:\Users\andrey\Downloads\Telegram Desktop\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRun.53F5E71F.Up2Date
+C:\Users\andrey\Downloads\Telegram Desktop\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+C:\Users\andrey\Downloads\Telegram Desktop\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb

@@ -6,18 +6,18 @@ using System.Text;
 namespace TriadCore
     {
     /// <summary>
-    /// Дескриптор объекта
+    /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     /// </summary>
     public class Node
         {
         /// <summary>
-        /// Конструктор
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param polusName="polusName">Имя вершины</param>
+        /// <param polusName="polusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public Node( CoreName coreName )
             {
             if ( coreName == null )
-                throw new ArgumentNullException( "Пустое имя вершины" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
             
             this.coreName = coreName;
             }
@@ -25,7 +25,7 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Имя вершины
+        /// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public CoreName Name
             {
@@ -37,7 +37,7 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Символьное имя объекта
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -47,7 +47,7 @@ namespace TriadCore
 
         
         /// <summary>
-        /// Список полюсов вершины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public IEnumerable<Polus> Poluses
             {
@@ -60,18 +60,18 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Получить копию
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <returns></returns>
         public Node Clone()
             {
-            //Создаем копию вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             Node newNode = new Node( this.Name );
-            //Делаем копии полюсов вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             foreach ( KeyValuePair<CoreName, Polus> pair in this.polusList )
                 newNode.polusList.Add( pair.Key, pair.Value.Clone() );
            
-            //Делаем копию рутины
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if ( this.nodeRoutine != null )
                 newNode.nodeRoutine = this.nodeRoutine.Clone();
 
@@ -80,20 +80,20 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Индексатор полюсов
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusName">Имя искомого полюса</param>
+        /// <param name="polusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         /// <returns></returns>
         public Polus this[ CoreName polusName ]
             {
             get
                 {
                 if ( polusName == null )
-                    throw new ArgumentNullException( "Пустое имя полюса" );
+                    throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" );
 
                 if ( !this.polusList.ContainsKey( polusName ) )
-                    throw new ArgumentException( "У вершины " +
-                        this.ToString() + " нет запрашиваемого полюса " +
+                    throw new ArgumentException( "пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " +
+                        this.ToString() + " пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " +
                         polusName );
 
                 return this.polusList[ polusName ];
@@ -102,9 +102,9 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Индексатор полюсов
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusIndex">Индекс полюса в вершине</param>
+        /// <param name="polusIndex">пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         /// <returns></returns>
         public Polus this[ int polusIndex ]
             {
@@ -118,7 +118,7 @@ namespace TriadCore
                     currIndex++;
                     }
 
-                throw new ArgumentOutOfRangeException( "Индекс полюса выходит за допустимые границы" );
+                throw new ArgumentOutOfRangeException( "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
                 }
             }
 
@@ -127,34 +127,34 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Объявить полюс
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusName">Имя полюса</param>
+        /// <param name="polusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void DeclarePolus( CoreName polusName )
             {
             if ( polusName == null )
-                throw new ArgumentNullException( "Передано пустое имя полюса" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" );
 
-            //Если полюса с таким именем ранее добавлено не было
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ
             if ( !polusList.ContainsKey( polusName ) )
                 {
                 polusList.Add( polusName, new Polus( polusName, this ) );
                 }
             else
                 {
-                //Ничего не добавляем
+                //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 }
             }
 
 
         /// <summary>
-        /// Объявить множество полюсов
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusNameRange">Имя полюса</param>
+        /// <param name="polusNameRange">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void DeclarePolus( CoreNameRange polusNameRange )
             {
             if ( polusNameRange == null )
-                throw new ArgumentNullException( "Передан пустой диапазон имен полюсов" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
 
             foreach ( CoreName polusName in polusNameRange )
                 DeclarePolus( polusName );
@@ -167,43 +167,43 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Соединить с полюсом
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polus">Полюс</param>
+        /// <param name="polus">пїЅпїЅпїЅпїЅпїЅ</param>
         private void Add( Polus polus )
             {
             if ( polus == null )
-                throw new ArgumentNullException( "Передан пустой полюс" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ" );
 
-            //Устанавливаем родительскую вершину у нового полюса
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             polus.BaseNode = this;
 
-            //Если такой полюс уже есть в вершине
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if ( this.polusList.ContainsKey( polus.Name ) )
                 {
-                //Сливаем новый полюс со старым
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 this.polusList[ polus.Name ].Add( polus );
                 }
-            //Если такого полюса нет в вершине
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             else
                 {
-                //Просто добавляем новый полюс
+                //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
                 this.polusList.Add( polus.Name, polus );
                 }
             }
 
 
         /// <summary>
-        /// Слить полюса двух вершин
+        /// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="node">Вторая вершина</param>
-        /// <returns> Результат слияния</returns>
+        /// <param name="node">пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns> пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public void Add( Node node )
             {
             if ( node == null )
-                throw new ArgumentNullException( "Передана пустая вершина" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
 
-            //Добавляем в текущую вершину все полюса переданной вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             foreach ( Polus polus in node.polusList.Values )
                 {
                 this.Add( polus );
@@ -212,28 +212,28 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Вычесть полюса переданной вершины из текущей
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="node">Вершина</param>
+        /// <param name="node">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void Subtract( Node node )
             {
             if ( node == null )
-                throw new ArgumentNullException( "Передана пустая вершина" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
 
-            //Список полюсов, которые нужно удалить из текущей вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             List<CoreName> polusesToRemove = new List<CoreName>();
-            //Перебираем полюса переданной вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             foreach ( Polus polus in node.polusList.Values )
                 {
-                //Если в текущей вершины есть полюс из переданной вершины
+                //пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 if ( this.polusList.ContainsKey( polus.Name ) )
                     {
-                    //Делаем этот полюс текущей вершины кандидатом на удаление
+                    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     polusesToRemove.Add( polus.Name );
                     }
                 }
 
-            //Удаляем выбранные полюса текущей вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             foreach ( CoreName polusName in polusesToRemove )
                 {
                 RemovePolus( polusName );
@@ -242,66 +242,66 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Удалить полюс
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusName">Имя полюса</param>
+        /// <param name="polusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         private void RemovePolus( CoreName polusName )
             {
             if ( polusName == null )
-                throw new ArgumentNullException( "Передано пустое имя полюса" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" );
 
-            //Если такой полюс есть в вершине
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if ( this.polusList.ContainsKey( polusName ) )
                 {
-                //Удаляем все дуги полюса
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 this.polusList[ polusName ].RemoveAllArcs();
-                //Удаляем сам полюс
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
                 this.polusList.Remove( polusName );
                 }
             else
                 {
-                //Ничего не делаем
+                //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 }
             }
 
         
         /// <summary>
-        /// Пересечь текущую вершину с другой по полюсам
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="node">Вторая вершина</param>
+        /// <param name="node">пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void Multiply( Node node )
             {
             if ( node == null )
-                throw new ArgumentNullException( "Передана пустая вершина" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
 
-            //Полюса текущей, которые нужно пересечь по общим дугам
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
             List<Polus> polusesToIntersect = new List<Polus>();
-            //Полюса текущей вершины, которые нужно просто удалить
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             List<Polus> polusesToRemove = new List<Polus>();
 
-            //Перебираем полюса текущей вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             foreach ( Polus polus in this.polusList.Values )
                 {
-                //Если переданная вершина содержит текущий полюс
+                //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
                 if ( node.polusList.ContainsKey( polus.Name ) )
                     {
-                    //То эти этот полюс нужно слить с соответствующим полюсом переданной вершины
+                    //пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     polusesToIntersect.Add( polus );
                     }
                 else
                     {
-                    //Иначе этот полюс нужно просто удалить из текущей вершины
+                    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     polusesToRemove.Add( polus );
                     }
                 }
 
-            //Удаляем выбранные полюса
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             foreach ( Polus polus in polusesToRemove )
                 {
                 RemovePolus( polus.Name );
                 }
 
-            //Сливаем выбранные полюса
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             foreach ( Polus polus in polusesToIntersect )
                 {
                 polus.Multiply( node[ polus.Name ] );
@@ -310,21 +310,21 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Добавить дугу
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusFrom">Начальный полюс (содержащийся в текущей вершине)</param>
-        /// <param name="polusTo">Конечный полюс</param>
+        /// <param name="polusFrom">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)</param>
+        /// <param name="polusTo">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</param>
         public void AddArc( Polus polusFrom, Polus polusTo )
             {
             if ( polusFrom == null )
-                throw new ArgumentNullException( "Пустой начальный полюс дуги" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" );
             if ( polusTo == null )
-                throw new ArgumentNullException( "Пустой конечный полюс дуги" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" );
 
-            //Если начальный полюс не содержится в текущей вершине
+            //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if ( !this.polusList.ContainsKey( polusFrom.Name ) )
-                throw new ArgumentException( "Вершина " +
-                    this.ToString() + "  не содержит полюса " +
+                throw new ArgumentException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " +
+                    this.ToString() + "  пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " +
                     polusFrom.ToString() );
 
             polusFrom.AddOutputArc( polusTo );
@@ -333,9 +333,9 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Наличие полюсов у вершины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <returns>Есть ли полюса</returns>
+        /// <returns>пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public bool HasPoluses()
             {
             return this.polusList.Count != 0;
@@ -344,14 +344,14 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Удалить все полюсы вершины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public void RemoveAllPoluses()
             {
-            //Перебираем полюса вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             foreach ( Polus polus in this.polusList.Values )
                 {
-                //Удаляем все дуги идущие к текущему полюсу
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 polus.RemoveAllArcs();
                 }
 
@@ -360,10 +360,10 @@ namespace TriadCore
 
         //======by jum=====
         /// <summary>
-        /// Операция слияния полюсов двух вершин
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="node1">1 вершина</param>
-        /// <param name="node2">2 вершина</param>
+        /// <param name="node1">1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="node2">2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         /// <returns></returns>
         public static Node operator +(Node node1, Node node2)
         {
@@ -378,10 +378,10 @@ namespace TriadCore
         }
 
         /// <summary>
-        /// Операция вычитания полюсов второй вершины из первой 
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
         /// </summary>
-        /// <param name="node1">1 вершина</param>
-        /// <param name="node2">2 вершина</param>
+        /// <param name="node1">1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="node2">2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         /// <returns></returns>
         public static Node operator -(Node node1, Node node2)
         {
@@ -396,10 +396,10 @@ namespace TriadCore
         }
 
         /// <summary>
-        /// Операция пересечения вершин по полюсам
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="node1">1 вершина</param>
-        /// <param name="node2">2 вершина</param>
+        /// <param name="node1">1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="node2">2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         /// <returns></returns>
         public static Node operator *(Node node1, Node node2)
         {
@@ -421,47 +421,47 @@ namespace TriadCore
         #region RoutioneOperations
 
         /// <summary>
-        /// Послать сообщение через полюс
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="message">Сообщение</param>
-        /// <param name="polusName">Имя полюса</param>
-        /// <param name="sendMessageTime">Время посылки сообщения</param>
+        /// <param name="message">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="polusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="sendMessageTime">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void SendMessageVia( string message, CoreName polusName, double sendMessageTime  )
             {
             if ( message == null )
-                throw new ArgumentNullException( "Передано пустое сообщение" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
             
             if ( polusName == null )
-                throw new ArgumentNullException( "Передано пустое имя полюса" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" );
 
             if ( !this.polusList.ContainsKey( polusName ) )
-                throw new ArgumentException( "Послать сообщение невозможно. Вершина " 
-                    + this.ToString() + " не содержит полюса " + polusName.ToString() );
+                throw new ArgumentException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " 
+                    + this.ToString() + " пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " + polusName.ToString() );
             
-            //Посылаем сообщение через указанный полюс вершины
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             this.polusList[ polusName ].SendMessage( message, sendMessageTime );
             }
 
 
         /// <summary>
-        /// Получить сообщение через полюс
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="polusName">Имя полюса</param>
-        /// <param name="message">Сообщение</param>
-        /// <param name="sendMessageTime">Время посылки сообщения</param>
+        /// <param name="polusName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="message">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="sendMessageTime">пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void ReceiveMessageVia( CoreName polusName, string message, double sendMessageTime )
             {
             if ( message == null )
-                throw new ArgumentNullException( "Передано пустое сообщение" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
 
             if ( polusName == null )
-                throw new ArgumentNullException( "Передано пустое имя полюса" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" );
 
             if ( !this.polusList.ContainsKey( polusName ) )
-                throw new ArgumentException( "Принять сообщение невозможно. Вершина "
-                    + this.ToString() + " не содержит полюса " + polusName.ToString() );
+                throw new ArgumentException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ "
+                    + this.ToString() + " пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " + polusName.ToString() );
 
-            //Если на вершину наложена рутина
+            //пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if ( this.nodeRoutine != null )
                 {
                 this.nodeRoutine.ReceiveMessage( polusName, message, sendMessageTime );
@@ -470,40 +470,40 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Задать рутину
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="routine">Рутина</param>
+        /// <param name="routine">пїЅпїЅпїЅпїЅпїЅпїЅ</param>
         public void RegisterRoutine( Routine routine )
             {
             if ( routine == null )
-                throw new ArgumentNullException( "Передана пустая рутина" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" );
 
-            //Накладываем на вершину копию рутины
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             this.nodeRoutine = routine.Clone();
             }
 
 
         /// <summary>
-        /// Инициализировать рутину вершины, если она есть
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         /// </summary>
         public void InitializeRoutine()
             {
-            //Если у вершины задана рутина
+            //пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if ( this.nodeRoutine != null )
                 {
                 nodeRoutine.Initialize( this );
-                //Сбрасываем календарь событий у рутины
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 nodeRoutine.EventCalendar.Reload();
                 }
             }
 
 
         /// <summary>
-        /// Выполнить секцию инициализации у рутины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public void DoRoutineInitialSection()
             {
-            //Если у вершины задана рутина
+            //пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if ( this.nodeRoutine != null )
                 {
                 nodeRoutine.DoInitialize();
@@ -518,49 +518,49 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Создать объект слежения за объектом в рутине вершины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="objectName">Имя объекта</param>
-        /// <param name="objectType">Тип объекта</param>
-        /// <returns>Объект</returns>
+        /// <param name="objectName">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="objectType">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public SpyObject CreateSpyObject( CoreName objectName, SpyObjectType objectType )
             {
             if ( objectName == null )
-                throw new ArgumentNullException( "Передано пустое имя объекта" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
 
-            //Если у вершины не задана рутина
+            //пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if ( this.nodeRoutine == null )
-                throw new InvalidOperationException( String.Format( "У вершины {0} не задана рутина", this ) );
+                throw new InvalidOperationException( String.Format( "пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ {0} пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ", this ) );
 
             switch ( objectType )
                 {
-                //Если нужно следить за переменной в рутине
+                //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 case SpyObjectType.Var:
                     return new SpyVar( objectName, this.nodeRoutine );
-                //Если нужно следить за приходом сообщений на полюс
+                //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
                 case SpyObjectType.Polus:
                     return new SpyPolus( objectName, this.nodeRoutine );
-                //Если нужно следить за срабатыванием событий
+                //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 case SpyObjectType.Event:
                     return new SpyEvent( objectName, this.nodeRoutine );
                 }
 
-            throw new ArgumentOutOfRangeException( "Указан неизвестный тип объекта слежений" );
+            throw new ArgumentOutOfRangeException( "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
             }
 
 
         /// <summary>
-        /// Создать диапазон объектов слежения
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
-        /// <param name="objectNameRange">Имя диапазона</param>
-        /// <param name="objectType">Тип объектов</param>
-        /// <returns>Диапазон</returns>
+        /// <param name="objectNameRange">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <param name="objectType">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</param>
+        /// <returns>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</returns>
         public SpyObject[] CreateSpyObject( CoreNameRange objectNameRange, SpyObjectType objectType )
             {
             if ( objectNameRange == null )
-                throw new ArgumentNullException( "Передан пустой диапазон объектов слежения" );
+                throw new ArgumentNullException( "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" );
 
-            //Список созданный объектов
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             List<SpyObject> objectList = new List<SpyObject>();
 
             foreach ( CoreName objectName in objectNameRange )
@@ -574,7 +574,7 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Рутина, наложенная на вершину
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         public Routine NodeRoutine
             {
@@ -590,15 +590,15 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Прикрепленная к вершине рутина
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private Routine nodeRoutine = null;
         /// <summary>
-        /// Имя вершины
+        /// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private CoreName coreName;
         /// <summary>
-        /// Список полюсов вершины
+        /// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         private Dictionary<CoreName, Polus> polusList = new Dictionary<CoreName, Polus>();
         }
